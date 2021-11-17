@@ -30,7 +30,7 @@ module.exports = {
   tagline: 'Building a better way to work with Protocol Buffers',
   url: 'https://docs.buf.build',
   baseUrl: '/',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   organizationName: 'bufbuild',
