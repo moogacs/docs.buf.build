@@ -64,6 +64,7 @@ In addition to the plugins mentioned above, we're also adding support for popula
 - https://buf.build/grpc/plugins/objc
 - https://buf.build/grpc/plugins/php
 - https://buf.build/grpc/plugins/ruby
+- https://buf.build/grpc/plugins/kotlin
 
 ## Example
 
