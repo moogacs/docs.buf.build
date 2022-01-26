@@ -91,6 +91,7 @@ To add a badge to an item, change the string id to a `doc` object. I.e. for `"bs
 ```
 
 The properties `label` and `severity` are mandatory. The severity can be one of:
+
 - `danger` (red badge)
 - `warning` (yellow badge)
 - `neutral` (gray badge)
@@ -118,7 +119,44 @@ Use this component for embedding [images](./src/components/Image/index.tsx). Her
 <Image src="/images/weird-al.png" alt="Funniest guy ever" />
 ```
 
-Required fields are `alt` and `src`. Optional fields: `title`, `width`, `caption`.
+Required fields are `alt` and `src`. Required fields are `alt` and `src`. Optional fields: `title`,
+`width`, `caption`.
+
+### Admonition blocks
+
+The Buf docs support five admonition blocks:
+
+Block type | Color scheme
+:----------|:------------
+`note` | Gray
+`tip` | Green
+`info` | Blue
+`warning` | Orange
+`danger` | Red
+
+Here's an example `note` block:
+
+```markdown
+:::note
+Here is something to keep in mind.
+:::
+```
+
+Admonition blocks support pretty much anything available in standard Markdown:
+
+```markdown
+:::note
+Here is some **bold text**. Here is some `code`. Here is a [link](https://example.com).
+:::
+```
+
+To supply a custom title:
+
+```markdown
+:::danger Please don't do this
+No really, we mean it
+:::
+```
 
 [buf]: https://buf.build
 [node]: https://nodejs.org
