@@ -129,28 +129,28 @@ There are two options:
 
 1. `directory` **(default)**
 
-This results in `buf` splitting the input files by directory, and making separate plugin invocations in parallel.
-This is roughly the concurrent equivalent of the following:
+  This results in `buf` splitting the input files by directory, and making separate plugin invocations in parallel.
+  This is roughly the concurrent equivalent of the following:
 
-```sh
-for dir in $(find . -name '*.proto' -print0 | xargs -0 -n1 dirname | sort | uniq); do
-  protoc -I . $(find "${dir}" -name '*.proto')
-done
-```
+  ```sh
+  for dir in $(find . -name '*.proto' -print0 | xargs -0 -n1 dirname | sort | uniq); do
+    protoc -I . $(find "${dir}" -name '*.proto')
+  done
+  ```
 
-Almost every `protoc` plugin either requires this, so this is the recommended `strategy`. The `directory`
-strategy is used by default if omitted.
+  Almost every `protoc` plugin either requires this, so this is the recommended `strategy`. The `directory`
+  strategy is used by default if omitted.
 
 2. `all`
 
-This results in `buf` making a single plugin invocation with all input files. This is roughly equivalent to
-the following:
+  This results in `buf` making a single plugin invocation with all input files. This is roughly equivalent to
+  the following:
 
-```
-$ protoc -I . $(find . -name '*.proto')
-```
+  ```
+  $ protoc -I . $(find . -name '*.proto')
+  ```
 
-This is needed for certain plugins that expect all files to be given at once.
+  This is needed for certain plugins that expect all files to be given at once.
 
 ### `managed`
 
