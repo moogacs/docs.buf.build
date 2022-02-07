@@ -135,7 +135,7 @@ the release assets instead.
 ```
 # Substitute GOBIN for your bin directory
 # Leave unset to default to $GOPATH/bin
-GO111MODULE=on GOBIN=/usr/local/bin go get \
+GO111MODULE=on GOBIN=/usr/local/bin go install \
   github.com/bufbuild/buf/cmd/buf \
   github.com/bufbuild/buf/cmd/protoc-gen-buf-breaking \
   github.com/bufbuild/buf/cmd/protoc-gen-buf-lint
