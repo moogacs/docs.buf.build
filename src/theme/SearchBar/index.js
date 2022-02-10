@@ -11,19 +11,19 @@
  * For original sources see:
  * https://github.com/facebook/docusaurus/tree/v2.0.0-beta.3/packages/docusaurus-theme-search-algolia/src/theme
  */
-import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
-import Head from '@docusaurus/Head';
-import Link from '@docusaurus/Link';
-import { useHistory } from '@docusaurus/router';
-import { translate } from '@docusaurus/Translate';
-import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useAlgoliaContextualFacetFilters from '@theme/hooks/useAlgoliaContextualFacetFilters';
-import useSearchQuery from '@theme/hooks/useSearchQuery';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { DocSearchButton, useDocSearchKeyboardEvents } from "@docsearch/react";
+import Head from "@docusaurus/Head";
+import Link from "@docusaurus/Link";
+import { useHistory } from "@docusaurus/router";
+import { translate } from "@docusaurus/Translate";
+import { useBaseUrlUtils } from "@docusaurus/useBaseUrl";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import useAlgoliaContextualFacetFilters from "@theme/hooks/useAlgoliaContextualFacetFilters";
+import useSearchQuery from "@theme/hooks/useSearchQuery";
+import React, { useCallback, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 let DocSearchModal = null;
 
@@ -57,7 +57,7 @@ function DocSearch({ contextualSearch, ...props }) {
   // we let user override default searchParameters if he wants to
   const searchParameters = {
     ...props.searchParameters,
-    facetFilters,
+    facetFilters
   };
 
   const { withBaseUrl } = useBaseUrlUtils();
@@ -75,7 +75,7 @@ function DocSearch({ contextualSearch, ...props }) {
     return Promise.all([
       import("@docsearch/react/modal"),
       import("@docsearch/react/style"),
-      import("./styles.css"),
+      import("./styles.css")
     ]).then(([{ DocSearchModal: Modal }]) => {
       DocSearchModal = Modal;
     });
@@ -84,10 +84,7 @@ function DocSearch({ contextualSearch, ...props }) {
   const onOpen = useCallback(() => {
     importDocSearchModalIfNeeded().then(() => {
       searchContainer.current = document.createElement("div");
-      document.body.insertBefore(
-        searchContainer.current,
-        document.body.firstChild
-      );
+      document.body.insertBefore(searchContainer.current, document.body.firstChild);
       setIsOpen(true);
     });
   }, [importDocSearchModalIfNeeded, setIsOpen]);
@@ -110,7 +107,7 @@ function DocSearch({ contextualSearch, ...props }) {
   const navigator = useRef({
     navigate({ itemUrl }) {
       history.push(itemUrl);
-    },
+    }
   }).current;
 
   const transformItems = useRef((items) => {
@@ -123,7 +120,7 @@ function DocSearch({ contextualSearch, ...props }) {
 
       return {
         ...item,
-        url: withBaseUrl(`${a.pathname}${a.hash}`),
+        url: withBaseUrl(`${a.pathname}${a.hash}`)
       };
     });
   }).current;
@@ -135,10 +132,7 @@ function DocSearch({ contextualSearch, ...props }) {
 
   const transformSearchClient = useCallback(
     (searchClient) => {
-      searchClient.addAlgoliaAgent(
-        "docusaurus",
-        siteMetadata.docusaurusVersion
-      );
+      searchClient.addAlgoliaAgent("docusaurus", siteMetadata.docusaurusVersion);
 
       return searchClient;
     },
@@ -150,7 +144,7 @@ function DocSearch({ contextualSearch, ...props }) {
     onOpen,
     onClose,
     onInput,
-    searchButtonRef,
+    searchButtonRef
   });
 
   // We override the default placeholder for the search bar input field
@@ -158,7 +152,7 @@ function DocSearch({ contextualSearch, ...props }) {
     id: "theme.SearchBar.label",
     // message: 'Search',
     message: "Search docs...",
-    description: "The ARIA label and placeholder for search button",
+    description: "The ARIA label and placeholder for search button"
   });
 
   return (
@@ -183,7 +177,7 @@ function DocSearch({ contextualSearch, ...props }) {
           ref={searchButtonRef}
           translations={{
             buttonText: translatedSearchLabel,
-            buttonAriaLabel: translatedSearchLabel,
+            buttonAriaLabel: translatedSearchLabel
           }}
         />
       </div>

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 enum Kind {
   STATIC = "static",
   DEFAULT = "default",
-  VARIABLE = "variable",
+  VARIABLE = "variable"
 }
 
 type SegmentProps = {
@@ -63,11 +63,7 @@ const Segment = ({ label, kind, separator, varName }: SegmentProps) => {
       );
       break;
   }
-  return separator != undefined ? (
-    <span className={styles.separator}>{separator}</span>
-  ) : (
-    item
-  );
+  return separator != undefined ? <span className={styles.separator}>{separator}</span> : item;
 };
 
 const Legend = ({ segments }: { segments: SegmentProps[] }) => {
@@ -78,9 +74,7 @@ const Legend = ({ segments }: { segments: SegmentProps[] }) => {
         <span>:</span>
       </span>
       <span className={styles.legendContent}>
-        {hasKind(segments, Kind.STATIC) && (
-          <span className={styles.static}>static</span>
-        )}
+        {hasKind(segments, Kind.STATIC) && <span className={styles.static}>static</span>}
         {hasKind(segments, Kind.DEFAULT) && (
           <span className={styles.default}>
             {"("}default{")"}
@@ -103,7 +97,7 @@ const Syntax = ({ title, segments, examples }: Props) => {
 
       <div className={styles.syntax}>
         {segments.map((seg) => (
-          <Segment {...seg} />
+          <Segment key={title.toLowerCase().replace(" ", "-")} {...seg} />
         ))}
       </div>
 
