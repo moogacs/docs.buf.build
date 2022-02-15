@@ -45,7 +45,7 @@ root of your `.proto` files hierarchy, as this is how `.proto` import paths are 
 
 ## Define a Module
 
-To get started, create a [module](../bsr/overview.md#module) by adding a `buf.yaml` file to the root of the directory
+To get started, create a [module](../bsr/overview.md#modules) by adding a `buf.yaml` file to the root of the directory
 that contains your Protobuf definitions. You can create the default `buf.yaml` file with this command:
 
 ```sh

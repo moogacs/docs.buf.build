@@ -97,7 +97,7 @@ build:
 ```
 
 Now that [workspaces](../reference/workspaces.md) are available, each of the roots can be defined as an independently configured
-[module](../bsr/overview.md#module) that can be imported by others. In the example above, the `proto` and `vendor/googleapis`
+[module](../bsr/overview.md#modules) that can be imported by others. In the example above, the `proto` and `vendor/googleapis`
 roots can be defined as separate modules like so:
 
 ```yaml title=proto/buf.yaml

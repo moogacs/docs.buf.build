@@ -8,7 +8,7 @@ title: Usage
 
 ## Define a module
 
-To get started, create a [module](../bsr/overview.md#module) by adding a [`buf.yaml`](../configuration/v1/buf-yaml.md)
+To get started, create a [module](../bsr/overview.md#modules) by adding a [`buf.yaml`](../configuration/v1/buf-yaml.md)
 file to the root of the directory that contains your Protobuf definitions. You can create the default `buf.yaml`
 file with this command:
 

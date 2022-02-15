@@ -13,7 +13,7 @@ collection of GitHub Actions that work together to provide a fully-featured CI/C
     and comments in-line on pull requests.
   - [buf-breaking](https://github.com/marketplace/actions/buf-breaking) verifies backwards compatibility
     for your Protobuf files with `buf`, and comments in-line on pull requests.
-  - [buf-push](https://github.com/marketplace/actions/buf-push) pushes a [module](../bsr/overview.md#module) to the Buf Schema Registry
+  - [buf-push](https://github.com/marketplace/actions/buf-push) pushes a [module](../bsr/overview.md#modules) to the Buf Schema Registry
     ([BSR](../bsr/overview.md)). The module is pushed with a tag equal to the git commit SHA.
 
 In this guide, you will configure these GitHub Actions so that `buf lint` and `buf breaking` are run on

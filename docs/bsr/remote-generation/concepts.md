@@ -67,7 +67,7 @@ Upcoming remote generation registries include the [CommonJS Registry](http://wik
 
 ## Synthetic version
 
-A **synthetic version** combines the [template](#template) and [module](../overview.md#module) versions into a [semantic version](https://semver.org/spec/v2.0.0.html) of this form:
+A **synthetic version** combines the [template](#template) and [module](../overview.md#modules) versions into a [semantic version](https://semver.org/spec/v2.0.0.html) of this form:
 
 import Syntax from "@site/src/components/Syntax";
 

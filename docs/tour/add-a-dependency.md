@@ -13,7 +13,7 @@ Even worse, this way of managing dependencies is prone to API drift, where the `
 code may evolve over time, leaving your local copies inconsistent with the latest version and your
 modules thus out of date. It turns out that this is exactly what you did with the `PetStoreService`:
 the `google/type/datetime.proto` file is actually present in your local directory and currently
-used to build your [module](../bsr/overview.md#module).
+used to build your [module](../bsr/overview.md#modules).
 
 Now that you're familiar with the BSR, you can simplify this entire workflow immensely.
 

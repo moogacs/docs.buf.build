@@ -4,7 +4,7 @@ title: Workspaces
 ---
 
 A workspace is a collection of one or more local modules that coexist and interoperate within a
-common directory. Workspaces make it possible for local [modules](../bsr/overview.md#module) to import
+common directory. Workspaces make it possible for local [modules](../bsr/overview.md#modules) to import
 Protobuf files from other local modules, and unlock other powerful use cases that operate on multiple
 modules at the same time.
 

@@ -5,7 +5,7 @@ title: Overview
 
 import Image from '@site/src/components/Image';
 
-## Module
+## Modules
 
 A **module** is a collection of Protobuf files that are configured, built, and versioned as a logical unit. By moving away from individual `.proto` files, the **module** simplifies file discovery and eliminates the need for complex build scripts to `-I` include, exclude, and configure your Protobuf sources.
 

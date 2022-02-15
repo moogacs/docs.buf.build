@@ -79,7 +79,7 @@ backwards compatible nature of Protobuf, we're able to add an additional field t
 while maintaining compatibility in both directions - existing Protobuf plugins drop this field, and
 `buf` does not require this field to be set to work with Images.
 
-**[Modules](../bsr/overview.md#module) are the primitive of Buf, and Images represent the compiled artifact of
+**[Modules](../bsr/overview.md#modules) are the primitive of Buf, and Images represent the compiled artifact of
 a module.** In fact, Images contain information about the module used to create it, which
 powers a variety of [BSR](../bsr/overview.md) features. For clarity, the `Image` definition is shown below
 (notice the `ModuleName` in the `ImageFileExtension`):

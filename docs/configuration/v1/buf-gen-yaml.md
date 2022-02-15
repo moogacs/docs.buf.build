@@ -4,7 +4,7 @@ title: buf.gen.yaml
 ---
 
 The `buf.gen.yaml` file defines a local generation template, and is used by the `buf generate` command
-to generate code for the language(s) of your choice. This file is often used with a [module](../../bsr/overview.md#module)
+to generate code for the language(s) of your choice. This file is often used with a [module](../../bsr/overview.md#modules)
 (or another [input](../../reference/inputs.md)), and is typically placed next to your [`buf.work.yaml`](buf-work-yaml.md) file like so:
 
 ```sh
@@ -247,7 +247,7 @@ option go_package = "github.com/acme/weather/gen/proto/go/acme/weather/v1;weathe
 ##### `except`
 
 The `except` key is **optional**, and removes certain modules from the `go_package` file option override behavior. The `except` values **must**
-be valid [module names](../../bsr/overview.md#module).
+be valid [module names](../../bsr/overview.md#modules).
 
 There are situations where you may want to enable **Managed Mode** for the `go_package` option in *most* of your Protobuf files, but not necessarily
 for *all* of your Protobuf files. This is particularly relevant for the `buf.build/googleapis/googleapis` module, which points its `go_package` value to

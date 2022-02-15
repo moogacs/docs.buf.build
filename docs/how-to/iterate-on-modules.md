@@ -3,7 +3,7 @@ id: iterate-on-modules
 title: Iterate on Modules
 ---
 
-> For a comprehensive guide on working with [modules](../bsr/overview.md#module) and the Buf
+> For a comprehensive guide on working with [modules](../bsr/overview.md#modules) and the Buf
 > Schema Registry ([BSR](../bsr/overview.md)), please check out [the tour](../tour/introduction.md)!
 
 As requirements change, you'll inevitably need to evolve your Protobuf APIs,
@@ -14,7 +14,7 @@ locally before pushing a new version to the BSR.
 
 This guide assumes that you've used and/or familiarized yourself with these topics:
 
-  - [Modules](../bsr/overview.md#module)
+  - [Modules](../bsr/overview.md#modules)
   - [BSR](../bsr/overview.md)
   - [Workspaces](../reference/workspaces.md)
 

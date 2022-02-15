@@ -29,7 +29,7 @@ All files should have a package defined. [(Why?)](../lint/rules.md#package_defin
 All files of the same package should be in the same directory. All files should
 be in a directory that matches their package name. [(Why?)](../lint/rules.md#why)
 
-For example, if we have a [module](../bsr/overview.md#module) defined in the `proto` directory, we
+For example, if we have a [module](../bsr/overview.md#modules) defined in the `proto` directory, we
 expect these `package` values:
 
 ```sh

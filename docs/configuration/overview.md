@@ -13,7 +13,7 @@ the relevant `buf` configuration files for `v1` is shown below:
 
 ## buf.yaml
 
-The `buf.yaml` is used to define a [module](../bsr/overview.md#module). The `buf.yaml` is the primary configuration file,
+The `buf.yaml` is used to define a [module](../bsr/overview.md#modules). The `buf.yaml` is the primary configuration file,
 and is responsible for the module's name, the module's dependencies, as well as the module's `lint` and `breaking`
 configuration.
 
