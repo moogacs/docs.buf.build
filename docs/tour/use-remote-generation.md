@@ -175,7 +175,7 @@ start/
     └── main.go
 ```
 
-## 16.4 Synthetic Versions {#synthetic-versions}
+## 16.4 Synthetic versions
 
 Now that your Go code depends on a remote-generated library, it's important to be aware of how it's
 versioned. The challenge with versioning Remote Generation is that the generated code is the product

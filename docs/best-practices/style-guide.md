@@ -22,7 +22,7 @@ their individual APIs.
 
 ## Requirements
 
-### Files and Packages
+### Files and packages
 
 All files should have a package defined. [(Why?)](../lint/rules.md#package_defined)
 

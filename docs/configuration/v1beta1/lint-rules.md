@@ -31,9 +31,9 @@ a human representation and is not actual configuration.
 - `UNARY_RPC`
 - `OTHER`
 
-## Style Guide
+## Style guide
 
-Our [Style Guide](../../best-practices/style-guide.md) provides a concise document that
+Our [style guide](../../best-practices/style-guide.md) provides a concise document that
 effectively includes all rules in the `DEFAULT` category, as well as additional
 recommendations that are not enforced. We provide this for ease of consumption across
 your various teams, while linking back to this document for rationale for individual

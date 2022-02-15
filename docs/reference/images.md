@@ -68,7 +68,7 @@ that includes both `foo.proto` and `bar.proto`, as well as source code informati
 $ protoc -I . --include_imports --include_source_info -o /dev/stdout foo.proto
 ```
 
-## What are Images then?
+## What are Images?
 
 An Image is Buf's custom extension to FileDescriptorSets. The actual definition is currently
 stored in [bufbuild/buf](https://github.com/bufbuild/buf/blob/master/proto/buf/alpha/image/v1/image.proto)
@@ -200,7 +200,7 @@ detector, Images are the storage format used if you want to manually store the s
 of your Protobuf schema. See the [input documentation](inputs.md#breaking-change-detection)
 for more details.
 
-## Creating images
+## Creating Images
 
 Images are created using `buf build`. If the current directory contains a valid
 [`buf.yaml`](../configuration/v1/buf-yaml.md), building an Image is as simple as:

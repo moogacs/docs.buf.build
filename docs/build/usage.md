@@ -62,7 +62,7 @@ breaking:
     - FILE
 ```
 
-## Modules and Workspaces
+## Modules and workspaces
 
 For those of you that have used `protoc`, the placement of the `buf.yaml` is analogous to a `protoc`
 include (`-I`) path. **With `buf`, there is no `-I` flag** - each `protoc` `-I` path maps to a directory

@@ -24,7 +24,7 @@ a human representation and is not actual configuration.
   - `COMMENTS`
   - `UNARY_RPC`
 
-## Style Guide
+## Style guide
 
 The [Style Guide](../best-practices/style-guide.md) provides a concise document that includes all rules in the
 `DEFAULT` category, as well as additional recommendations that are not enforced. We provide this for ease of consumption

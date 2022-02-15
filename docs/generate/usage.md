@@ -100,6 +100,7 @@ Generate output can also be printed as JSON:
 
 ```sh
 $ buf generate --error-format=json
+---
 {"path":"acme/pet/v1/pet.proto","start_line":5,"start_column":8,"end_line":5,"end_column":8,"type":"COMPILE","message":"acme/payment/v1alpha1/payment.proto: does not exist"}
 ```
 

@@ -11,7 +11,7 @@ The BSR stores and manages Protobuf files as versioned [modules](overview.md#mod
 
 The BSR comes with a browsable UI, dependency management, API validation and versioning, generated documentation, and an extensible plugin system which enables remote code generation.
 
-### BSR Goals
+### BSR goals
 
 1. **Centralized Registry** - The BSR is the source of truth for tracking and evolving your Protobuf APIs. A centralized registry enables you to maintain compatibility and manage dependencies, while making it easy for your clients to consume APIs reliably and efficiently. Having a centralized, Protobuf-aware, registry has the added benefit of protecting against broken builds.
 
@@ -65,7 +65,7 @@ The Buf ecosystem solves this by decoupling consumer and producer concerns. The 
 
 Generating an SDK client should be as simple as keeping code up-to-date like any other library in your language of choice.
 
-## Let's Get Started
+## Let's get started
 
 Once you've [installed](../installation.md) the latest version `buf`, you're ready to use the BSR!
 
@@ -80,7 +80,7 @@ Here are a few ways to get moving:
   - **[The Tour](../tour/introduction.md)** <br/>
     The tour provides an overview of the BSR and takes approximately 20 minutes to complete.
 
-## Experimental Features
+## Experimental features
 
 [Remote Generation](remote-generation/overview.md) is currently an *experimental feature*. This feature lets the BSR generate data types and service stubs for your modules and store the generated code in a **hosted registry**. With this, you can consume the generated code like any other library in your language of choice.
 

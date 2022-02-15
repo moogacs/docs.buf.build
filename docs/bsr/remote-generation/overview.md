@@ -49,7 +49,7 @@ Buf maintains several official templates:
 - https://buf.build/grpc/templates/web
 - https://buf.build/grpc/templates/go
 
-## Remote Generation Registries
+## Remote generation registries
 
 With a specific Template version and a specific Module version, the BSR has enough information
 to perform code generation. The output of this operation is stored in a Remote Generation Registry.
@@ -64,4 +64,4 @@ Examples include: Maven Central, RubyGems, Go modules, PyPI, crates.io, NPM, etc
 Remote generation registries must have a consistent way of versioning the output of code generation,
 and it must ensure that it always serves the exact same content once a version has been released.
 To accomplish this consistent versioning, the BSR adopts something we call
-[synthetic versions](concepts.md#synthetic-version).
+[synthetic versions](concepts.md#synthetic-versions).

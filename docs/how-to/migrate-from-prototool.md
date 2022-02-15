@@ -10,7 +10,7 @@ In this document, we'll discuss the pros and cons of Prototool vs `buf`'s build,
 and breaking change detection functionality, as well as `buf`-equivalent commands
 and migration.
 
-## Prototool Pros
+## Prototool pros
 
 - Prototool has a formatter via `prototool format`. `buf` does not have a formatter as of
   now, but one may exist in the near future. The short is that Protobuf linters that exist
@@ -30,7 +30,7 @@ and migration.
   do not have plans to provide such functionality.
 
 
-## Prototool Cons
+## Prototool cons
 
 - By far the biggest con of Prototool is that it both uses a third-party Protobuf parser
   that is not tested to cover every edge case of the Protobuf grammar, while additionally shelling

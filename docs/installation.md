@@ -132,7 +132,7 @@ GO111MODULE=on GOBIN=/usr/local/bin go install \
   github.com/bufbuild/buf/cmd/buf@v1.0.0-rc12
 ```
 
-## Use the Docker Image
+## Using the Docker Image
 
 Buf ships a Docker image ([bufbuild/buf](https://hub.docker.com/r/bufbuild/buf)) that enables
 you to use `buf` as part of your Docker workflow.

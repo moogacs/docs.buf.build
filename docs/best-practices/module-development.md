@@ -8,7 +8,7 @@ The Buf Schema Registry ([BSR](../bsr/overview.md)) automatically enforces that 
 that can't be enforced that you should consider when you are developing your modules. We'll go
 over what these best practices are, and why they're important to keep in mind.
 
-## Module Layout
+## Module layout
 
 The module is a versioned unit of Protobuf files, but it's best to *also* incorporate
 a certain level of versioning in its directory and package structure.
@@ -55,7 +55,7 @@ compile. In other words, it's impossible for the compiler to distinguish between
 > The module layout described here is included in the [`MINIMAL`](../lint/rules.md#minimal) lint
 > category.
 
-## Maintain Backwards Compatibility
+## Maintain backwards compatibility
 
 Do **not** push backwards-incompatible changes to your module.
 
