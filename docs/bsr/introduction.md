@@ -26,7 +26,7 @@ The BSR comes with a browsable UI, dependency management, API validation and ver
     - *Local Code Generation*: The BSR contains remote references that allow you to immediately generate code for your language of choice. Use your existing `protoc` plugins,
       run `buf generate`, and you're ready to go.
 
-    - *Remote Code Generation (experimental)*: Don't want to manage plugins? No problem. The BSR offers remote code generation through hosted plugins and templates.
+    - *Remote Code Generation (alpha)*: Don't want to manage plugins? No problem. The BSR offers remote code generation through hosted plugins and templates.
       The remote-generated code gets stored in a managed software repository that you fetch like any other library with tools you already know: `go get`, `mvn install`,
       `pip install`, `npm install`, etc.
 
@@ -82,6 +82,6 @@ Here are a few ways to get moving:
 
 ## Experimental features
 
-[Remote Generation](remote-generation/overview.md) is currently an *experimental feature*. This feature lets the BSR generate data types and service stubs for your modules and store the generated code in a **hosted registry**. With this, you can consume the generated code like any other library in your language of choice.
+[Remote Generation](remote-generation/overview.md) is currently an *alpha feature*. This feature lets the BSR generate data types and service stubs for your modules and store the generated code in a **hosted registry**. With this, you can consume the generated code like any other library in your language of choice.
 
 > Note, this feature is currently available for Go. But we have plans to add additional support for other languages.
