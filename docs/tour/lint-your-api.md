@@ -159,7 +159,7 @@ lint:
 
 In this case, you don't own the `google/type/datetime.proto` file, so it's best to `ignore` it altogether.
 
-## 3.4 Remote Inputs {#remote-inputs}
+## 3.4 Remote inputs {#remote-inputs}
 
 The `buf lint` command also works with remote inputs, using the local `buf.yaml` configuration. For example, you can see all
 the original lint failures if you reference a `tar.gz` archive from the `main` branch:

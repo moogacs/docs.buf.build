@@ -30,7 +30,7 @@ Most Protobuf usage involves `.proto` files on disk, and this is how `buf` works
 there are also cases where you may want to work with sources beyond your local filesystem. We
 describe these cases in detail below.
 
-### The Buf Schema Registry (BSR)
+### The Buf Schema Registry (BSR) {#bsr}
 
 The core primitive for Buf is the [module](/bsr/overview.md#modules). Protobuf on its own has **no
 concept of modules**, only files. The Buf Schema Registry ([BSR](../bsr/overview.md)) is a registry
@@ -63,53 +63,53 @@ $ buf build -o image.bin
 $ buf breaking --against image.bin
 ```
 
-## Specifying an Input
+## Specifying an input
 
 Inputs are specified as the first argument on the command line, and with the `--against` flag for the
-compare against Input on `buf breaking`.
+compare against input on `buf breaking`.
 
-For each of `buf {build,lint,breaking,generate,ls-files}`, the Input is specified as the first argument.
-Inputs are specified as a string, and have this structure:
+For each of `buf {build,lint,breaking,generate,ls-files}`, the input is specified as the first argument.
+Inputs are specified as a string and have this structure:
 
 ```
 path#option_key1=option_value1,option_key2=option_value2
 ```
 
-The path specifies the path to the Input. The options specify options to interpret the
-Input at the path.
+The path specifies the path to the input. The options specify options to interpret the
+input at the path.
 
 ### format option
 
-The `format` option can be used on any Input string to override the derived Format.
+The `format` option can be used on any input string to override the derived format.
 
 Examples:
 
-  - `path/to/file.data#format=bin` explicitly sets the Format to `bin`. By default this path
-    would be interpreted as Format `dir`.
-  - `https://github.com/googleapis/googleapis#format=git` explicitly sets the Format to `git`. In
+  - `path/to/file.data#format=bin` explicitly sets the format to `bin`. By default this path
+    would be interpreted as `dir` format.
+  - `https://github.com/googleapis/googleapis#format=git` explicitly sets the format to `git`. In
     this case however, note that `https://github.com/googleapis/googleapis.git` has the
-    same effect; the `.git` suffix is used to infer the Format (see below for derived Formats).
-  - `-#format=json` explicitly sets the Format to `json`, which reads from stdin as JSON, or in the case
+    same effect; the `.git` suffix is used to infer the format (see below for derived formats).
+  - `-#format=json` explicitly sets the format to `json`, which reads from stdin as JSON, or in the case
     of `buf build --output`, writes to stdout as JSON.
 
 ### Other options
 
-As of now, there are seven other options, all of which are Format-specific:
+As of now, there are seven other options, all of which are format specific:
 
-  - The `branch` option specifies the branch to clone for `git` Inputs.
-  - The `tag` option specifies the tag to clone for `git` Inputs.
-  - The `ref` option specifies an explicit `git` reference for `git` Inputs. Any ref that is a valid
+  - The `branch` option specifies the branch to clone for `git` inputs.
+  - The `tag` option specifies the tag to clone for `git` inputs.
+  - The `ref` option specifies an explicit `git` reference for `git` inputs. Any ref that is a valid
     input to `git checkout` is accepted.
   - The `depth` option optionally specifies how deep of a clone to perform.
     This defaults to 50 if ref is set, and 1 otherwise.
-  - The `recurse_submodules` option says to clone submodules recursively for `git` Inputs.
-  - The `strip_components` option specifies the number of directories to strip for `tar` or `zip` Inputs.
-  - The `subdir` option specifies a subdirectory to use within a `git`, `tar`, or `zip` Input.
+  - The `recurse_submodules` option says to clone submodules recursively for `git` inputs.
+  - The `strip_components` option specifies the number of directories to strip for `tar` or `zip` inputs.
+  - The `subdir` option specifies a subdirectory to use within a `git`, `tar`, or `zip` input.
 
 If `ref` is specified, `branch` can be further specified to clone a specific branch before checking
 out the `ref`.
 
-## Source Formats
+## Source formats
 
 All Sources contain a set of `.proto` files that can be compiled.
 
@@ -117,7 +117,7 @@ All Sources contain a set of `.proto` files that can be compiled.
 
 A local directory. The path can be either relative or absolute.
 
-**This is the default Format**. By default, `buf` uses the current directory as its input for all commands.
+**This is the default format**. By default, `buf` uses the current directory as its input for all commands.
 
 Examples:
 
@@ -237,10 +237,10 @@ Examples:
 
 ### Symlinks
 
-Note that symlinks are supported for `dir` and `file` inputs only, while `git`, `tar`, and `zip` Inputs
+Note that symlinks are supported for `dir` and `file` inputs only, while `git`, `tar`, and `zip` inputs
 ignore all symlinks.
 
-## Image Formats
+## Image formats
 
 All Images are files. Files can be read from a local path, a remote http/https location,
 or `-` for stdin.
@@ -260,7 +260,7 @@ Images are created using `buf build`. Examples:
 
 Note that `-o` is an alias for `--output`.
 
-**Images can also be created in the `bin` Format using `protoc`**. See the [internal compiler](../build/internal-compiler.md)
+**Images can also be created in the `bin` format using `protoc`**. See the [internal compiler](../build/internal-compiler.md)
 documentation for more details.
 
 For example, the command below shows a valid way to compile all Protobuf files in your current directory,
@@ -328,12 +328,12 @@ $ buf build -o -#format=json | jq '.file[] | .package' | sort | uniq | head
 "google.ads.googleads.v2.errors"
 ```
 
-## Automatically derived Formats
+## Automatically derived formats
 
-By default, `buf` derives the Format and compression of an Input from the path via the file
+By default, `buf` derives the format and compression of an input from the path via the file
 extension.
 
-| Extension | Derived Format | Derived Compression |
+| Extension | Derived format | Derived Compression |
 | --- | --- | --- |
 | .bin | bin | none |
 | .bin.gz | bin | gzip |
@@ -354,7 +354,7 @@ There are also **two special cases**:
     Format.
 
     Of note, the special value `-` can also be used as a value to the `--output` flag of `buf build`,
-    which is interpreted to mean stdout, and also interpreted by default as the `bin` Format.
+    which is interpreted to mean stdout, and also interpreted by default as the `bin` format.
 
   - If the path is `/dev/null` on Linux or Mac, or `nul` for Windows, this is
     interpreted as the `bin` format.
@@ -362,18 +362,18 @@ There are also **two special cases**:
 **If no format can be automatically derived, the `dir` format is assumed**, meaning that `buf`
 assumes that the path is a path to a local directory.
 
-The format of an Input can be explicitly set as described above.
+The format of an input can be explicitly set as described above.
 
-## Deprecated Formats
+## Deprecated formats
 
 The formats below are deprecated. They should continue to work forever, but we recommend
 updating if you are explicitly specifying any of these.
 
 | Format | Replacement |
 | --- | --- |
-| bingz | Use the `bin` format with the `compression=gzip` option. |
-| jsongz | Use the `json` format with the `compression=gzip` option. |
-| targz | Use the `tar` format with the `compression=gzip` option. |
+| `bingz` | Use the `bin` format with the `compression=gzip` option. |
+| `jsongz` | Use the `json` format with the `compression=gzip` option. |
+| `targz` | Use the `tar` format with the `compression=gzip` option. |
 
 ## Authentication
 
@@ -433,10 +433,10 @@ file pre-installed, so this should work out of the box.
 
 By default, `buf` looks for a [`buf.yaml`](../configuration/v1/buf-yaml.md) in this manner:
 
-- For `dir, bin, json` Inputs, `buf` looks at your current directory for a `buf.yaml` file.
-- For `tar` and `zip` Inputs, `buf` looks at the root of the archive for a `buf.yaml` file
+- For `dir, bin, json` inputs, `buf` looks at your current directory for a `buf.yaml` file.
+- For `tar` and `zip` inputs, `buf` looks at the root of the archive for a `buf.yaml` file
   after `strip_components` is applied.
-- For `git` Inputs, `buf` looks at the root of the cloned repository at the head of the
+- For `git` inputs, `buf` looks at the root of the cloned repository at the head of the
   cloned branch.
 
 The configuration can be overridden with the `--config` flag. See the [configuration documentation](../configuration/overview.md#configuration-override)

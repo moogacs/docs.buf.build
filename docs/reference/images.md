@@ -232,8 +232,8 @@ Images can be outputted in one of two formats:
 
 Either format can be compressed using Gzip or Zstandard.
 
-Per the [Inputs](inputs.md) documentation, `buf build` can deduce the format
-by the file extension:
+Per the [Buf input](inputs.md) documentation, `buf build` can deduce the format
+from the file extension:
 
 ```sh
 $ buf build -o image.bin

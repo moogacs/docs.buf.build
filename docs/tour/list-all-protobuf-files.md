@@ -17,7 +17,7 @@ The [`build.excludes`](/configuration/v1/buf-yaml#excludes) parameter
 enables you to prevent certain directories from being built, but this is neither
 necessary nor recommended.
 
-## 2.1 Remote Inputs {#remote-inputs}
+## 2.1 Remote inputs {#remote-inputs}
 
 The `ls-files` command also works with remote inputs, such as this Git input:
 

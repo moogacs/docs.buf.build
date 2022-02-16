@@ -131,7 +131,7 @@ $ buf generate https://github.com/foo/bar.git --template data/generate.yaml -o b
 The paths in the template and the `-o` flag are interpreted as relative to your
 **current directory**, so you can place your template files anywhere.
 
-For a complete list of supported inputs refer to the [Input format documentation](../reference/inputs.md#source-formats).
+For a complete list of supported inputs refer to the [input format documentation](../reference/inputs.md#source-formats).
 
 
 ## Limit to specific files
