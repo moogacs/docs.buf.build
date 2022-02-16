@@ -51,7 +51,7 @@ version stored? `buf` provides multiple options for this, including the ability 
 and compare against a Git branch or Git tag.
 
 However, it is sometimes preferable to store a representation of your old version in a file. `buf` provides
-this functionality with Images, allowing you to store your golden state, and then compare your
+this functionality with [Buf images](../reference/images.md), allowing you to store your golden state, and then compare your
 current Protobuf schema against this golden state. This includes support for partial comparisons, as well
 as storing this golden state in a remote location.
 
@@ -241,10 +241,10 @@ ignore all symlinks.
 
 ## Image formats
 
-All Images are files. Files can be read from a local path, a remote http/https location,
-or `-` for stdin.
+All Buf images are files. You can read image files from a local path, a remote HTTP/HTTPS location,
+or stdin (using `-`).
 
-Images are created using `buf build`. Examples:
+You can create images using `buf build`. Examples:
 
   - `buf build -o image.bin`
   - `buf build -o image.bin.gz`
@@ -259,12 +259,12 @@ Images are created using `buf build`. Examples:
 
 Note that `-o` is an alias for `--output`.
 
-**Images can also be created in the `bin` format using `protoc`**. See the [internal compiler](../build/internal-compiler.md)
+**You can also create Buf images in the `bin` format using `protoc`**. See the [internal compiler](../build/internal-compiler.md)
 documentation for more details.
 
-For example, the command below shows a valid way to compile all Protobuf files in your current directory,
+The command below, for examples, shows a way to compile all Protobuf files in your current directory,
 produce a [FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)
-(which is also an Image, as described in the [Buf image documentation](images.md)) to stdout, and read this Image as binary
+(which is also a Buf image, as described in the [reference documentation](images.md)) to stdout, and read this image as binary
 from stdin:
 
 ```sh
@@ -273,12 +273,12 @@ $ protoc -I . $(find. -name '*.proto') -o /dev/stdout | buf lint -
 
 ### bin
 
-A binary Image.
+A Buf image in binary format.
 
-Use `compression=gzip` to specify the Image is compressed with Gzip. This is automatically detected
+Use `compression=gzip` to specify that the Buf image is compressed using Gzip. This is automatically detected
 if the file extension is `.bin.gz`
 
-Use `compression=zstd` to specify the Image is compressed with Zstandard. This is automatically detected
+Use `compression=zstd` to specify that the Buf image is compressed using Zstandard. This is automatically detected
 if the file extension is `.bin.zst`
 
 Examples:
@@ -286,19 +286,19 @@ Examples:
   - `image.bin` says to read the file at this relative path.
   - `image.bin.gz` says to read the gzipped file at this relative path.
   - `image.bin.zst` says to read the zstandard file at this relative path.
-  - `-` says to read a binary Image from stdin.
-  - `-#compression=gzip` says to read a gzipped binary Image from stdin.
-  - `-#compression=zstd` says to read a zstandard binary Image from stdin.
+  - `-` says to read a binary image from stdin.
+  - `-#compression=gzip` says to read a gzipped binary image from stdin.
+  - `-#compression=zstd` says to read a zstandard binary image from stdin.
 
 ### json
 
-A JSON Image. This creates Images that take much more space, and are slower to parse, but results
-in diffs that show the actual differences between two Images in a readable format.
+A Buf image in JSON format. This creates images that use much more space and are slower to parse but result
+in diffs that show the actual differences between two Buf images in a readable format.
 
-Use `compression=gzip` to specify the Image is compressed with Gzip. This is automatically detected
+Use `compression=gzip` to specify the Buf image is compressed with Gzip. This is automatically detected
 if the file extension is `.json.gz`
 
-Use `compression=zstd` to specify the Image is compressed with Zstandard. This is automatically detected
+Use `compression=zstd` to specify that the Buf image is compressed with Zstandard. This is automatically detected
 if the file extension is `.json.zst`
 
 Examples:
@@ -306,9 +306,9 @@ Examples:
   - `image.json` says to read the file at this relative path.
   - `image.json.gz` says to read the gzipped file at this relative path.
   - `image.json.zst` says to read the zstandard file at this relative path.
-  - `-#format=json` says to read a JSON Image from stdin.
-  - `-#format=json,compression=gzip` says to read a gzipped JSON Image from stdin.
-  - `-#format=json,compression=zstd` says to read a zstandard JSON Image from stdin.
+  - `-#format=json` says to read a JSON image from stdin.
+  - `-#format=json,compression=gzip` says to read a gzipped JSON image from stdin.
+  - `-#format=json,compression=zstd` says to read a zstandard JSON image from stdin.
 
 When combined with [jq](https://stedolan.github.io/jq), this also allows for introspection. For example,
 to see a list of all packages:
@@ -376,18 +376,18 @@ updating if you are explicitly specifying any of these.
 
 ## Authentication
 
-Archives, Git repositories, and Image files can be read from remote locations. For those remote
+Archives, Git repositories, and Buf image files can be read from remote locations. For those remote
 locations that need authentication, a couple mechanisms exist.
 
 ### HTTPS
 
-Remote archives and Image files use [netrc files](https://ec.haxx.se/usingcurl/usingcurl-netrc)
+Remote archives and Buf image files use [netrc files](https://ec.haxx.se/usingcurl/usingcurl-netrc)
 for authentication. `buf` looks for a netrc file at `$NETRC` first, defaulting to `~/.netrc`.
 
 Git repositories are cloned using the `git` command, so any credential helpers you have configured
 are automatically used.
 
-Basic authentication can be also specified for remote archives, Git repositories, and Image files over
+Basic authentication can be also specified for remote archives, Git repositories, and Buf image files over
 HTTPS with these environment variables:
 
 - `BUF_INPUT_HTTPS_USERNAME` is the username. For GitHub, this is your GitHub user.

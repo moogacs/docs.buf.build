@@ -141,7 +141,7 @@ of input to compare against. The equivalent in `buf` would be to specify your Bu
 There are multiple methods to compare versions in `buf`, see the [breaking usage](../breaking/usage.md)
 documentation for more details.
 
-This section assumes you are using stored Image files as your method of comparing versions of your
+This section assumes you are using stored [Buf image](../reference/images.md) files as your method of comparing versions of your
 Protobuf schema.
 
 ### `protolock init`
@@ -150,7 +150,7 @@ Protobuf schema.
 $ buf build -o lock.bin
 ```
 
-This writes a binary Image of your current Protobuf schema. If you prefer this to be stored as JSON,
+This writes a binary [Buf image](../reference/images.md) of your current Protobuf schema. If you prefer this to be stored as JSON,
 as Protolock does, instead write to a file with a `.json` extension, such as `buf build -o lock.json`.
 Note that by default, `buf build` include source code info, which makes the resulting file significantly
 larger. If this is not a concern, we recommend keeping the source code info for usage with other parts of
@@ -163,7 +163,7 @@ with the `--exclude-source-info` flag.
 $ buf breaking --against lock.bin
 ```
 
-This checks  for breaking changes against the `lock.bin` Image file.
+This checks  for breaking changes against the `lock.bin` [Buf image](../reference/images.md) file.
 Use `buf breaking --against lock.json` if you wrote a JSON file.
 
 ### `protolock commit`

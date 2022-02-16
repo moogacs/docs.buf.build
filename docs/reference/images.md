@@ -46,7 +46,7 @@ compiled Protobuf schema. They are also the primary artifact that protoc produce
 That is to say that everything you do with `protoc`, and any plugins you use, talk in terms of FileDescriptorSets.
 [gRPC Reflection](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) uses them under the hood as well.
 
-## How do I create FileDescriptorSets with protoc?
+## Creating FileDescriptorSets with protoc
 
 `protoc` provides the `--descriptor_set_out` flag, aliased as `-o`, to allow writing serialized
 FileDescriptorSets. For example, given a single file `foo.proto`, you can write a FileDescriptorSet to
@@ -68,21 +68,21 @@ that includes both `foo.proto` and `bar.proto`, as well as source code informati
 $ protoc -I . --include_imports --include_source_info -o /dev/stdout foo.proto
 ```
 
-## What are Images?
+## What are Buf images?
 
-An Image is Buf's custom extension to FileDescriptorSets. The actual definition is currently
+An **image** is Buf's custom extension to FileDescriptorSets. The actual definition is currently
 stored in [bufbuild/buf](https://github.com/bufbuild/buf/blob/master/proto/buf/alpha/image/v1/image.proto)
 as of this writing.
 
-**Images are FileDescriptorSets, and FileDescriptorSets are Images.** Due to the forwards and
+**Buf images are FileDescriptorSets, and FileDescriptorSets are images.** Due to the forwards and
 backwards compatible nature of Protobuf, we're able to add an additional field to FileDescriptorSet
 while maintaining compatibility in both directions - existing Protobuf plugins drop this field, and
-`buf` does not require this field to be set to work with Images.
+`buf` does not require this field to be set to work with images.
 
-**[Modules](../bsr/overview.md#modules) are the primitive of Buf, and Images represent the compiled artifact of
-a module.** In fact, Images contain information about the module used to create it, which
-powers a variety of [BSR](../bsr/overview.md) features. For clarity, the `Image` definition is shown below
-(notice the `ModuleName` in the `ImageFileExtension`):
+**[Modules](../bsr/overview.md#modules) are the primitive of Buf, and Buf images represent the compiled artifact of
+a module.** In fact, images contain information about the module used to create it, which
+powers a variety of [BSR](../bsr/overview.md) features. For clarity, the [`Image`][image-proto]
+Protobuf definition is shown below (notice the `ModuleName` in the `ImageFileExtension`):
 
 ```protobuf
 // Image is an extended FileDescriptorSet.
@@ -193,16 +193,16 @@ message ModuleName {
 
 ## Linting and breaking change detection
 
-Linting and breaking change detection internally operate on Images that `buf`
-either produces on the fly, or reads from an external location. They represent a stable,
-widely-used method to represent a compiled Protobuf schema. For the breaking change
-detector, Images are the storage format used if you want to manually store the state
+Linting and breaking change detection internally operate on Buf images that the `buf` CLI
+either produces on the fly or reads from an external location. They represent a stable,
+widely used method to represent a compiled Protobuf schema. For the breaking change
+detector, images are the storage format used if you want to manually store the state
 of your Protobuf schema. See the [input documentation](inputs.md#breaking-change-detection)
 for more details.
 
-## Creating Images
+## Creating images
 
-You can create images using `buf build`. If the current directory contains a valid
+You can create Buf images using `buf build`. If the current directory contains a valid
 [`buf.yaml`](../configuration/v1/buf-yaml.md), you can building an image with this command:
 
 ```sh
@@ -213,7 +213,7 @@ The resulting Buf image is written to the `image.bin` file. Of note, the orderin
 the FileDescriptorProtos is carefully written to mimic the ordering that `protoc`
 would produce, for both the cases where imports are and are not written.
 
-By default, `buf` produces an Image with both imports and source code info. You can
+By default, `buf` produces a [Buf image](../reference/images.md) with both imports and source code info. You can
 strip each of these:
 
 ```sh
@@ -279,8 +279,7 @@ merely see this as an unknown field. However, we provide the option in case you 
 
 ## Using protoc output as `buf` input
 
-Since `buf` speaks in terms of the Image, and FileDescriptorSets are Images, we're able to easily
-allow `protoc` output to be `buf` input. As an example for lint:
+Since `buf` speaks in terms of [Buf images](../reference/images.md) and FileDescriptorSets are images, we can use`protoc` output as `buf` input. Here's an example for [`buf lint`](../lint/usage.md):
 
 ```sh
 $ protoc -I . --include_source_info -o /dev/stdout foo.proto | buf lint -
@@ -288,6 +287,8 @@ $ protoc -I . --include_source_info -o /dev/stdout foo.proto | buf lint -
 
 ## Protoc lint and breaking change detection plugins
 
-Since `buf` talks in terms of FileDescriptorSets, it's trivial for us to provide the Protobuf
+Since `buf` "understands" FileDescriptorSets, we can provide Protobuf
 plugins [protoc-gen-buf-lint](../lint/protoc-plugin.md) and [protoc-gen-buf-breaking](../breaking/protoc-plugin.md)
 as well.
+
+[image-proto]: https://buf.build/bufbuild/buf/docs/main/buf.alpha.image.v1#buf.alpha.image.v1.Image

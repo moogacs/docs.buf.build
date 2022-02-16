@@ -301,7 +301,7 @@ There is no equivalent in `buf`.
 $ buf build --exclude-imports --exclude-source-info -o -
 ```
 
-This writes a binary [Buf image](../reference/images.md) to stdout. While Images are wire compatible with
+This writes a binary [Buf image](../reference/images.md) to stdout. While images are wire compatible with
 FileDescriptorSets, you can strip the extra metadata with the `--as-file-descriptor-set` flag. If you want to write
 to a file, specify the file path for `-o` instead of `-`.
 
