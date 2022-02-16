@@ -16,10 +16,9 @@ and explained below.
 
 First, some basic terminology to help our discussion:
 
-- A **source** is a set of `.proto` files that can be built into a single **image** using the `buf build` command.
-- An **image** is itself an [`Image`][image_proto] Protobuf message. The exact
-  mechanics of images are described in the documentation for [Buf images](images.md).
-- An **input** is either a **source**—a set of `.proto` files—or an **image**—a set of `.proto` files built into a single, encapsulating Protobuf message.
+- A **source** is a set of `.proto` files that can be built into a single Buf **image** using the `buf build` command.
+- An **image** is itself an [`Image`][image-proto] Protobuf message. The mechanics of images are described in the [reference docs](images.md).
+- An **input** is either a **source**—a set of `.proto` files—or an **image**—a set of `.proto` files built into a single, encapsulating Protobuf [`Image`][image-proto] message.
 - All **inputs** have a **format** that describes the type of the **input**. Commonly used formats
   include [`dir`](#dir) and [`git`](#git). The **format** of an **input** is usually derived
   automatically but you can opt to set it explicitly.
@@ -442,4 +441,4 @@ By default, `buf` looks for a [`buf.yaml`](../configuration/v1/buf-yaml.md) in t
 The configuration can be overridden with the `--config` flag. See the [configuration documentation](../configuration/overview.md#configuration-override)
 for more details.
 
-[image_proto]: https://buf.build/bufbuild/buf/docs/main/buf.alpha.image.v1#buf.alpha.image.v1.Image
+[image-proto]: https://buf.build/bufbuild/buf/docs/main/buf.alpha.image.v1#buf.alpha.image.v1.Image
