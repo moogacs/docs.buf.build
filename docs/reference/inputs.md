@@ -37,7 +37,7 @@ concept of modules**, only files. The Buf Schema Registry ([BSR](../bsr/overview
 for Buf modules that you want to manage across teams and even organizations.
 
 With the BSR, you can refer to any version of a Buf module and use it as an input for each of the
-`buf` commands. You can lint all the Protobuf files in the `buf.build/acme/weather` module, for
+`buf` commands. You can lint all the Protobuf files in the `buf.build/acme/petapis` module, for
 example, with the `buf lint` command:
 
 ```sh
