@@ -620,12 +620,12 @@ we think that `java_package` should likely be a constant prefix followed by the 
 These aren't defaults, for backwards-compatibility reasons, but if you're using a tool like `buf` to produce your
 stubs, you shouldn't have to think about any of this.
 
-This is exactly why we've created [Managed Mode](../generate/managed-mode.md), which sets all of these file options
+This is exactly why we've created [managed mode](../generate/managed-mode.md), which sets all of these file options
 *on the fly* with `buf generate`.
 
 `buf` still enforces that specific file options are the same across a given package, done through the `BASIC` and
 `DEFAULT` categories described above. We do find this to be important, regardless of what values you choose. Fortunately,
-with **Managed Mode**, you can remove your file option declarations altogether and leave the rest to `buf`.
+with managed mode you can remove your file option declarations altogether and leave the rest to `buf`.
 
 ### Custom options
 

@@ -154,7 +154,7 @@ There are two options:
 
 ### `managed`
 
-The `managed` key is used to configure [Managed Mode] and is an advanced feature. A complete example of the
+The `managed` key is used to configure [managed mode](../../generate/managed-mode) and is an advanced feature. A complete example of the
 `managed` configuration with the `protoc-gen-go` plugin is shown below:
 
 ```yaml title="buf.gen.yaml"
@@ -184,7 +184,7 @@ plugins:
 #### `enabled`
 
 The `enabled` key is **required** if *any* other `managed` keys are set. Setting `enabled` equal to `true`
-enables [Managed Mode](../../generate/managed-mode) according to [default behavior](../../generate/managed-mode.md#default-behavior).
+enables [managed mode](../../generate/managed-mode) according to [default behavior](../../generate/managed-mode.md#default-behavior).
 
 #### `cc_enable_arenas`
 
@@ -249,10 +249,10 @@ option go_package = "github.com/acme/weather/gen/proto/go/acme/weather/v1;weathe
 The `except` key is **optional**, and removes certain modules from the `go_package` file option override behavior. The `except` values **must**
 be valid [module names](../../bsr/overview.md#modules).
 
-There are situations where you may want to enable **Managed Mode** for the `go_package` option in *most* of your Protobuf files, but not necessarily
+There are situations where you may want to enable [managed mode](../../generate/managed-mode.md) for the `go_package` option in *most* of your Protobuf files, but not necessarily
 for *all* of your Protobuf files. This is particularly relevant for the `buf.build/googleapis/googleapis` module, which points its `go_package` value to
 an [external repository](https://github.com/googleapis/go-genproto). Popular libraries, such as [grpc-go](https://github.com/grpc/grpc-go) depend on these
-`go_package` values, so it's important that **Managed Mode** does not overwrite them.
+`go_package` values, so it's important that managed mode does not overwrite them.
 
 ##### `override`
 
