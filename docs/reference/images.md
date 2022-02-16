@@ -3,8 +3,8 @@ id: images
 title: Images
 ---
 
-Throughout the documentation, you may occasionally see references to **Images**. We'll go over what
-Images are, how they are used, and the various options associated with them here.
+Throughout the documentation, you may occasionally see references to Buf **images**. We'll go over what
+images are, how they are used, and the various options associated with them here.
 
 ## How Protobuf plugins work
 
@@ -203,13 +203,13 @@ for more details.
 ## Creating Images
 
 Images are created using `buf build`. If the current directory contains a valid
-[`buf.yaml`](../configuration/v1/buf-yaml.md), building an Image is as simple as:
+[`buf.yaml`](../configuration/v1/buf-yaml.md), building an image is as simple as:
 
 ```sh
 $ buf build -o image.bin
 ```
 
-The resulting Image is written to the `image.bin` file. Of note, the ordering of
+The resulting Buf image is written to the `image.bin` file. Of note, the ordering of
 the FileDescriptorProtos is carefully written to mimic the ordering that `protoc`
 would produce, for both the cases where imports are and are not written.
 

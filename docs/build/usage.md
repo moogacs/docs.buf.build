@@ -220,7 +220,7 @@ By default, `buf build` outputs the its result to `/dev/null`. In this case, it'
 `buf build` as a validation step, analogous to checking if the input compiles.
 
 However, `buf build` also supports outputting [FileDescriptorSets](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)
-and [Images](../reference/images.md), which is Buf's custom extension of the FileDescriptorSet. Better yet, these outputs
+and [Buf images](../reference/images.md). Images are Buf's custom extension of the FileDescriptorSet. Better yet, these outputs
 can be formatted in a variety of ways.
 
 `buf build` can deduce the output format by the file extension, see the documentation on [automatically derived formats](../reference/inputs.md#automatically-derived-formats). For example,

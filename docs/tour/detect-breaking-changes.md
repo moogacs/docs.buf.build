@@ -90,7 +90,7 @@ Once you've determined that your change is breaking, revert it:
 ## 4.4 Read an Image from stdin {#read-an-image-from-stdin}
 
 Like all other `buf` commands, [`buf breaking`][breaking] can read input from stdin. This is useful
-if, for example, you're downloading an [Image](../reference/images.md) from a private location. As a
+if, for example, you're downloading a [Buf image](../reference/images.md) from a private location. As a
 fun example, let's build an image out of our current state, write it to stdout, then compare against
 the input from stdin. This should _always_ pass, as it compares the current state to the current
 state:

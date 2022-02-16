@@ -3,7 +3,7 @@ id: inputs
 title: Inputs
 ---
 
-The various I/O options for `buf` can seem daunting and overly complex, so we'll break down how this
+The various I/O options for `buf` may seem a bit daunting, so we'll break down how this
 all fits together.
 
 In general, an input is a collection of `.proto` files used by many of the `buf` commands.
@@ -16,31 +16,32 @@ and explained below.
 
 First, some basic terminology to help our discussion:
 
-- A **Source** is a set of `.proto` files that can be compiled.
-- An **Image** is a compiled set of `.proto` files. This is itself a Protobuf message. The exact
-  mechanics of Images are described in the [Image documentation](images.md). **Images** are created
-  from **Sources** using `buf build`.
-- An **Input** is either a **Source** or an **Image**.
-- All **Inputs** have a **Format**, which describes the type of the **Input**. This **Format** is
-  usually automatically derived, however it can be explicitly set.
+- A **source** is a set of `.proto` files that can be built into a single **image** using the `buf build` command.
+- An **image** is itself an [`Image`][image_proto] Protobuf message. The exact
+  mechanics of images are described in the documentation for [Buf images](images.md).
+- An **input** is either a **source**—a set of `.proto` files—or an **image**—a set of `.proto` files built into a single, encapsulating Protobuf message.
+- All **inputs** have a **format** that describes the type of the **input**. Commonly used formats
+  include [`dir`](#dir) and [`git`](#git). The **format** of an **input** is usually derived
+  automatically but you can opt to set it explicitly.
 
 ## Why?
 
-Generally, your only goal is to work with `.proto` files on disk. This is how `buf` works by default.
-However, there are cases where one wants to work with more than just local files, which are described
-below.
+Most Protobuf usage involves `.proto` files on disk, and this is how `buf` works by default. But
+there are also cases where you may want to work with sources beyond your local filesystem. We
+describe these cases in detail below.
 
 ### The Buf Schema Registry (BSR)
 
-The core primitive for Buf is the module, which is emphasized by the Buf Schema Registry ([BSR](../bsr/overview.md)).
-With the BSR, it's easy to refer to any version of your module and use it as an input for each
-of the `buf` commands.
+The core primitive for Buf is the [module](/bsr/overview.md#modules). Protobuf on its own has **no
+concept of modules**, only files. The Buf Schema Registry ([BSR](../bsr/overview.md)) is a registry
+for Buf modules that you want to manage across teams and even organizations.
 
-For example, you can run `buf lint` for all of the files contained in the `buf.build/acme/weather` module like
-so:
+With the BSR, you can refer to any version of a Buf module and use it as an input for each of the
+`buf` commands. You can lint all the Protobuf files in the `buf.build/acme/weather` module, for
+example, with the `buf lint` command:
 
 ```sh
-$ buf lint buf.build/acme/weather
+$ buf lint buf.build/acme/petapis
 ```
 
 ### Breaking change detection
@@ -264,7 +265,7 @@ documentation for more details.
 
 For example, the command below shows a valid way to compile all Protobuf files in your current directory,
 produce a [FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)
-(which is also an Image, as described in the [Image documentation](images.md)) to stdout, and read this Image as binary
+(which is also an Image, as described in the [Buf image documentation](images.md)) to stdout, and read this Image as binary
 from stdin:
 
 ```sh
@@ -440,3 +441,5 @@ By default, `buf` looks for a [`buf.yaml`](../configuration/v1/buf-yaml.md) in t
 
 The configuration can be overridden with the `--config` flag. See the [configuration documentation](../configuration/overview.md#configuration-override)
 for more details.
+
+[image_proto]: https://buf.build/bufbuild/buf/docs/main/buf.alpha.image.v1#buf.alpha.image.v1.Image

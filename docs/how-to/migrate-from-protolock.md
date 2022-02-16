@@ -36,7 +36,7 @@ detector](../breaking/overview), as well as `buf`-equivalent commands and migrat
   of the third-party Protobuf parser, meaning that file data can be corrupted for an
   invalid parse. This structure also does not cover all known elements of a Protobuf
   schema, especially Protobuf options that can have an effect on your API compatibility.
-  Instead, `buf` uses FileDescriptorSets, extended to [Images](../reference/images.md),
+  Instead, `buf` uses FileDescriptorSets, extended to [Buf images](../reference/images.md),
   which are the primitive of the Protobuf ecosystem, and have been stable for over a decade.
   `buf`'s equivalent to lock files are just serialized FileDescriptorSets.
 - Protolock only enforces 8 rules related to API compatibility in strict mode, and 5
@@ -65,7 +65,7 @@ detector](../breaking/overview), as well as `buf`-equivalent commands and migrat
       compiling on the fly.
     - Reading a tar or zip archive, either local or remote and optionally compressed, and compiling
       on the fly.
-    - Reading a "lock file", represented as an [Image](../reference/images.md), from either
+    - Reading a "lock file", represented as a [Buf image](../reference/images.md), from either
       a local location or a remote http/https location.
 - Both Protolock and `buf` run file discovery for your Protobuf files, however `buf` allows
   you to skip file discovery and specify your files [manually](../build/usage.md#limit-to-specific-files)
@@ -133,7 +133,7 @@ The Protolock flag `--protoroot` is effectively handled by the placement of the
 [`buf.yaml`](../configuration/v1/buf-yaml.md) configuration file.
 
 The Protolock flag `--lockdir` is handled by your against input, as `buf` can take multiple types
-of input to compare against. The equivalent in `buf` would be to specify your image location with
+of input to compare against. The equivalent in `buf` would be to specify your Buf image location with
 `--against path/to/lock.bin`.
 
 ## Equivalent commands
