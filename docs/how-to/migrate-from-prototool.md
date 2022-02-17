@@ -15,7 +15,7 @@ and migration.
 - Prototool has a formatter via `prototool format`. `buf` does not have a formatter as of
   now, but one may exist in the near future. The short is that Protobuf linters that exist
   today either rely on third-party Protobuf parsers (as Prototool does), which can result in
-  corrupt files, or on FileDescriptorSets, which are lossy. However, if you're willing to assume
+  corrupt files, or on `FileDescriptorSet`s, which are lossy. However, if you're willing to assume
   the risks, this is functionality that Prototool has that `buf` does not.
 - Prototool has gRPC CLI functionality via `prototool grpc`. This functionality
   roughly models parts of [grpcurl](https://github.com/fullstorydev/grpcurl) but with
@@ -75,7 +75,7 @@ and migration.
   breaking changes. Within these categories, you can go further and enable or
   disable individual rules through configuration. Prototool effectively only
   checks per-package generated stub breaking changes.
-- Prototool does not cover all possible issues per the FileDescriptorSet definition
+- Prototool does not cover all possible issues per the `FileDescriptorSet` definition
   of what is a breaking change, even for per-package generated stub breaking changes.
 - `buf` provides `file:line:column:message` references for breaking change violations,
   letting you know where a violation occurred, including potentially integrating this
@@ -83,7 +83,7 @@ and migration.
   if types move across files between versions of your Protobuf schema. The error output
   can be outputted as text or JSON, with other formats coming in the future.
   Prototool prints out unreferenced messages.
-- Since `buf` can process FileDescriptorSets as input, `buf` provides
+- Since `buf` can process `FileDescriptorSet`s as input, `buf` provides
   `protoc` plugins [protoc-gen-buf-lint](../lint/protoc-plugin.md) and
   [protoc-gen-buf-breaking](../breaking/protoc-plugin.md) to allow you to use `buf`'s
   lint breaking change detection functionality with your current `protoc` setup.
@@ -302,7 +302,7 @@ $ buf build --exclude-imports --exclude-source-info -o -
 ```
 
 This writes a binary [Buf image](../reference/images.md) to stdout. While images are wire compatible with
-FileDescriptorSets, you can strip the extra metadata with the `--as-file-descriptor-set` flag. If you want to write
+`FileDescriptorSet`s, you can strip the extra metadata with the `--as-file-descriptor-set` flag. If you want to write
 to a file, specify the file path for `-o` instead of `-`.
 
 ### `prototool files`
@@ -331,7 +331,7 @@ There is no equivalent in `buf`.
 
 `buf` does not have gRPC functionality, as discussed above. We recommend using
 [grpcurl](https://github.com/fullstorydev/grpcurl) instead. See the [gRPC](grpc.md)
-documentation for details on how to use FileDescriptorSets produced by `buf` for
+documentation for details on how to use `FileDescriptorSet`s produced by `buf` for
 `grpcurl` input.
 
 ### `prototool lint`

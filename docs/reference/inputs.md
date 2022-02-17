@@ -263,7 +263,7 @@ Note that `-o` is an alias for `--output`.
 documentation for more details.
 
 The command below, for examples, shows a way to compile all Protobuf files in your current directory,
-produce a [FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)
+produce a [`FileDescriptorSet`](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)
 (which is also a Buf image, as described in the [reference documentation](images.md)) to stdout, and read this image as binary
 from stdin:
 
