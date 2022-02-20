@@ -250,7 +250,7 @@ The `buf.gen.yaml` configuration file is largely unchanged, but a few changes ex
 
 ### Managed mode
 
-Previously, users could enable **managed mode** and configure specific file options in their `buf.gen.yaml` like so:
+Previously, users could enable **managed mode** and configure specific file options in their `buf.gen.yaml` like this:
 
 ```yaml title="buf.gen.yaml"
 version: v1beta1
