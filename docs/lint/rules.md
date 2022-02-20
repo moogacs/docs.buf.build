@@ -629,7 +629,7 @@ with managed mode you can remove your file option declarations altogether and le
 
 ### Custom options
 
-There are no lint rules for widely-used custom options such as [google.api options](https://github.com/googleapis/googleapis/tree/master/google/api)
+There are no lint rules for widely used custom options such as [google.api options](https://github.com/googleapis/googleapis/tree/master/google/api)
 or [protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate/blob/master/validate/validate.proto).
 There's a lot of thought that needs to go into issues such as forwards and backwards compatibility for custom options,
 so we currently only support the standard set of file options. Please [contact us](../contact.md) if this is a big need for

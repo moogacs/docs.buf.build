@@ -3,7 +3,7 @@ id: migrate-from-protolock
 title: Migrate From Protolock
 ---
 
-[Protolock](https://github.com/nilslice/protolock) is a widely-used Protobuf tool that primarily
+[Protolock](https://github.com/nilslice/protolock) is a widely used Protobuf tool that primarily
 concentrates on breaking change detection. It deserves a lot of praise - in the OSS world, it
 largely pioneered the breaking change detection effort, and has been very well maintained. We
 can't heap enough praise on this effort, it's helped the Protobuf ecosystem move forward in

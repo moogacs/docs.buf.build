@@ -3,7 +3,7 @@ id: migrate-from-prototool
 title: Migrate From Prototool
 ---
 
-[Prototool](https://github.com/uber/prototool) is a widely-used Protobuf tool that has a builder,
+[Prototool](https://github.com/uber/prototool) is a widely used Protobuf tool that has a builder,
 linter, formatter, breaking change detector, gRPC CLI, and configurable plugin executor.
 
 In this document, we'll discuss the pros and cons of Prototool vs `buf`'s build, lint
