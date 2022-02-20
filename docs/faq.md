@@ -21,7 +21,7 @@ make sure that we don't break you, not your responsibility to change because of 
 a lot about `buf` usage in the last two years of our beta, and have deprecated flags and commands as
 we go, but for v1.0, we are removing the deprecated items to make sure we have a clean setup going forward.
 
-All commands and flags have been printing warnings for a long time, and have an easy migration path.
+All commands and flags have been printing warnings for a long time, and have a smooth migration path.
 Simply update the command or flag, and you'll be good to go:
 
 - Removed the `buf login` command in favor of `buf registry login`.
@@ -118,14 +118,14 @@ results, forever. In this spirit, we want to make sure that upgrading `buf` does
 in any configuration differences, and does not result in different lint or breaking change results.
 
 There are only a few exceptions to this rule that took place between `v1beta1` and `v1`. Fortunately,
-we've rolled out the `buf config migrate-v1beta1` command to automatically migrate your configuration
+we've rolled out the `buf beta migrate-v1beta1` command to automatically migrate your configuration
 for you. For more information on exactly what changed between `v1beta1` and `v1`, check out the
 [migration guide](configuration/v1beta1-migration-guide.md).
 
 We also need to be able to enhance the lint and breaking change functionality, and improve
 on the configuration shape as well. To accomplish this, while not breaking users who have
 come to rely on the existing shape and rules, we have added this version. The only
-currently-available versions are `v1beta1` and `v1`.
+currently available versions are `v1beta1` and `v1`.
 
 **The `v1beta1` version will be supported forever.** This will not be removed when we hit v1.0.
 Having a `version` set in your configuration is currently optional, however we will
@@ -138,7 +138,7 @@ To prepare for this, and to remove this warning, just add a version to the top o
 version: v1
 ```
 
-As a simple one-liner to do so, run this:
+Here's a one-liner for that:
 
 ```sh
 $ cat <(echo version: v1) buf.yaml > buf.yaml.tmp && mv buf.yaml.tmp buf.yaml

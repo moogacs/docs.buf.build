@@ -14,7 +14,7 @@ tooling set up locally.
 
 Furthermore, if you have Protobuf-based services your clients shouldn't have to deal
 with code generation. They should be able to consume your API immediately. *And* it should
-be as simple as pulling a generated client from their language's registry, that's it!
+involve nothing more than pulling a generated client from their language's registry, that's it!
 
 import Image from '@site/src/components/Image';
 
@@ -57,8 +57,8 @@ This is **extremely** powerful, because producers and consumers of Protobuf-base
 can import type definitions and/or service stubs in their language directly from the registry without having
 to deal with code generation.
 
-Initially we are targeting the Go ecosystem. However, most modern language ecosystems have some concept of
-a "registry" where you can depend on external code artifacts in a well versioned way.
+Initially we are targeting the Go ecosystem. Most modern language ecosystems, however, have some
+concept of a "registry" where you can depend on external code artifacts in a well versioned way.
 Examples include: Maven Central, RubyGems, Go modules, PyPI, crates.io, NPM, etc.
 
 Remote generation registries must have a consistent way of versioning the output of code generation,
