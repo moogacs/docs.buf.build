@@ -120,7 +120,7 @@ VERSION="1.0.0" && \
   minisign -Vm sha256.txt -P RWQ/i9xseZwBVE7pEniCNjlNOeeyp4BQgdZDLQcAohxEAH5Uj5DEKjv6
 ```
 
-## From Source
+## From source
 
 The binary can be installed from source if `go` is installed, however we recommend using one of
 the release assets instead.
@@ -132,7 +132,7 @@ GO111MODULE=on GOBIN=/usr/local/bin go install \
   github.com/bufbuild/buf/cmd/buf@v1.0.0
 ```
 
-## Using the Docker Image
+## Using the Docker image
 
 Buf ships a Docker image ([bufbuild/buf](https://hub.docker.com/r/bufbuild/buf)) that enables
 you to use `buf` as part of your Docker workflow.

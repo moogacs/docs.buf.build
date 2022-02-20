@@ -83,7 +83,7 @@ powers a variety of [BSR](../bsr/overview.md) features. For clarity, the [`Image
 Protobuf definition is shown below (notice the `ModuleName` in the `ImageFileExtension`):
 
 ```protobuf
-// A Buf Image is an extended FileDescriptorSet.
+// A Buf image is an extended FileDescriptorSet.
 //
 // See https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto
 message Image {

@@ -6,7 +6,7 @@ title: Inputs
 The various I/O options for `buf` may seem a bit daunting, so we'll break down how this
 all fits together.
 
-In general, an input is a collection of `.proto` files used by many of the `buf` commands.
+In general, a Buf input is a collection of `.proto` files used by many of the `buf` commands.
 In most cases, this is a [module](../bsr/overview.md#modules), but a variety of other formats are supported
 and explained below.
 
@@ -16,9 +16,12 @@ and explained below.
 
 First, some basic terminology to help our discussion:
 
-- A **source** is a set of `.proto` files that can be built into a single Buf **image** using the `buf build` command.
-- A Buf **image** is itself an [`Image`][image-proto] Protobuf message. The mechanics of images are described in the [reference docs](images.md).
-- An **input** is either a **source**—a set of `.proto` files—or an **image**—a set of `.proto` files built into a single, encapsulating Protobuf [`Image`][image-proto] message.
+- A **source** is a set of `.proto` files that can be built into a single Buf **image** using the
+  `buf build` command.
+- A Buf **image** is encoded as an [`Image`][image-proto] Protobuf message. The mechanics of Buf
+  images are described in the [reference docs](images.md).
+- An **input** is either a **source**—a set of `.proto` files—or an **image**—a set of `.proto`
+  files built into a single, encapsulating Protobuf [`Image`][image-proto] message.
 - All **inputs** have a **format** that describes the type of the **input**. Commonly used formats
   include [`dir`](#dir) and [`git`](#git). The **format** of an **input** is usually derived
   automatically but you can opt to set it explicitly.
@@ -64,8 +67,8 @@ $ buf breaking --against image.bin
 
 ## Specifying an input
 
-Inputs are specified as the first argument on the command line, and with the `--against` flag for the
-compare against input on `buf breaking`.
+Buf inputs are specified as the first argument on the command line, and with the `--against` flag
+for the compare against input on `buf breaking`.
 
 For each of `buf {build,lint,breaking,generate,ls-files}`, the input is specified as the first argument.
 Inputs are specified as a string and have this structure:
