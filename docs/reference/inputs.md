@@ -26,9 +26,9 @@ First, some basic terminology to help our discussion:
 
 ## Why?
 
-Generally, your only goal is to work with `.proto` files on disk. This is how `buf` works by default.
-However, there are cases where one wants to work with more than just local files, which are described
-below.
+Generally, your only goal is to work with `.proto` files on disk. The `buf` CLI works this way by default.
+But there are cases where you may want to work with more than just local files. Those cases are
+described below.
 
 ### The Buf Schema Registry (BSR)
 
@@ -50,7 +50,7 @@ current Protobuf schema to an old version of your schema, you have to decide - w
 version stored? `buf` provides multiple options for this, including the ability to directly compile
 and compare against a Git branch or Git tag.
 
-However, it is sometimes preferable to store a representation of your old version in a file. `buf` provides
+It's sometimes preferable, however, to store a representation of your old version in a file. `buf` provides
 this functionality with Images, allowing you to store your golden state, and then compare your
 current Protobuf schema against this golden state. This includes support for partial comparisons, as well
 as storing this golden state in a remote location.

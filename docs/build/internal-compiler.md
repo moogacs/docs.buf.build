@@ -4,8 +4,8 @@ title: Internal Compiler
 ---
 
 Protobuf is the most stable and widely adopted interface description language available
-today - it's why Buf is concentrating its initial efforts on Protobuf. However, Protobuf
-has never had an officially-published Protobuf grammar - [there are proto2 and proto3
+today - it's why Buf is concentrating its initial efforts on Protobuf. But Protobuf
+has never had an officially published Protobuf grammar - [there are proto2 and proto3
 specs published](https://developers.google.com/protocol-buffers/docs/reference/proto3-spec),
 but neither actually cover all edge cases, of which there are many (especially around options).
 

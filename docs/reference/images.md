@@ -152,7 +152,7 @@ message ImageFileExtension {
   //
   // Per the FileDescriptorProto spec, it would be fine in this case to just
   // leave the syntax field unset to denote this and to set the syntax field
-  // to "proto2" if it is specified. However, protoc does not set the syntax
+  // to "proto2" if it is specified. But protoc does not set the syntax
   // field if it was "proto2", and plugins may (incorrectly) depend on this.
   // We also want to maintain consistency with protoc as much as possible.
   // So instead, we have this field which denotes whether syntax was not
@@ -221,7 +221,7 @@ $ buf build --exclude-imports --exclude-source-info -o image.bin
 ```
 
 In general, we do not recommend stripping these, as this information can be useful
-for various operations. However, source code info takes a lot of additional space
+for various operations. Source code info, however, takes up a lot of additional space
 (generally ~5x more space), so if you know you do not need this data, it can be useful
 to strip source code info.
 
@@ -267,7 +267,7 @@ $ buf build -o -#format=json | jq '.file[] | .package' | sort | uniq | head
 "google.ads.googleads.v2.errors"
 ```
 
-Images always include the ImageFileExtension field. However, if you want a pure FileDescriptorSet
+Images always include the ImageFileExtension field.  if you want a pure FileDescriptorSet
 without this field set, to mimic `protoc` entirely:
 
 ```
@@ -275,7 +275,7 @@ $ buf build -o image.bin --as-file-descriptor-set
 ```
 
 The ImageFileExtension field doesn't affect Protobuf plugins or any other operations; they
-merely see this as an unknown field. However, we provide the option in case you want it.
+merely see this as an unknown field. But we provide this option in case you need it.
 
 ## Using protoc output as `buf` input
 
