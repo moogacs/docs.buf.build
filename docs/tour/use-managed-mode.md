@@ -1,6 +1,6 @@
 ---
 id: use-managed-mode
-title: 13 Use Managed Mode
+title: 13 Use managed mode
 ---
 
 In this section, you'll learn how to use [**managed mode**](../generate/managed-mode.md) when

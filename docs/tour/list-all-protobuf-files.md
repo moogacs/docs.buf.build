@@ -1,6 +1,6 @@
 ---
 id: list-all-protobuf-files
-title: 2 List All Protobuf Files
+title: 2 List all Protobuf files
 ---
 
 You can list all of the `.proto` files managed by `buf` per the
