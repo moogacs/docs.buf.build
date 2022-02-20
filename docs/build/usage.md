@@ -216,12 +216,12 @@ $ buf build --error-format=json
 
 ## Output format
 
-By default, `buf build` outputs the its result to `/dev/null`. In this case, it's common to use
+By default, `buf build` outputs its result to `/dev/null`. In this case, it's common to use
 `buf build` as a validation step, analogous to checking if the input compiles.
 
-However, `buf build` also supports outputting [`FileDescriptorSet`s][filedescriptorset]
-and [Buf images](../reference/images.md). Images are Buf's custom extension of the `FileDescriptorSet`.
-Better yet, you can format these outputs in a variety of ways.
+`buf build` also supports outputting [FileDescriptorSets](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto)
+and [Images](../reference/images.md), which is Buf's custom extension of the FileDescriptorSet. Better yet, these outputs
+can be formatted in a variety of ways.
 
 `buf build` can deduce the output format by the file extension, see the documentation on [automatically derived formats](../reference/inputs.md#automatically-derived-formats). For example,
 
@@ -257,15 +257,15 @@ $ buf build -o -#format=json | jq '.file[] | .package' | sort | uniq | head
 "google.ads.googleads.v2.errors"
 ```
 
-Images always include the `ImageExtension` field. However, if you want a pure FileDescriptorSet without
-this field set, to mimic `protoc` entirely, you can use the `--as-file-descriptor-set` flag:
+Images always include the `ImageExtension` field. But if you want a pure FileDescriptorSet without
+this field set, and thus to mimic `protoc` entirely, you can use the `--as-file-descriptor-set` flag:
 
 ```sh
 $ buf build -o image.bin --as-file-descriptor-set
 ```
 
 The `ImageExtension` field doesn't affect Protobuf plugins or any other operations, as they merely see this as an unknown
-field. However, we provide the option in case you want it.
+field. But we provide the option in case you want it.
 
 ## Limit to specific files
 

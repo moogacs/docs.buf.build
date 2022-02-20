@@ -31,7 +31,7 @@ Before we can push a plugin to the BSR, a repository must exist. You can create 
 From the UI click your avatar in the top-right corner, select Plugins and click
 the Create Plugin button. Follow the on-screen instructions.
 
-However, for this example we'll use the `buf` CLI.
+For this example, however, we'll use the `buf` CLI.
 
 > This tutorial uses a real organization (demolab) and plugin name (twirp), make sure to substitute these with your own values.
 

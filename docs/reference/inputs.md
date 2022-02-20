@@ -17,7 +17,7 @@ and explained below.
 First, some basic terminology to help our discussion:
 
 - A **source** is a set of `.proto` files that can be built into a single Buf **image** using the `buf build` command.
-- An **image** is itself an [`Image`][image-proto] Protobuf message. The mechanics of images are described in the [reference docs](images.md).
+- A Buf **image** is itself an [`Image`][image-proto] Protobuf message. The mechanics of images are described in the [reference docs](images.md).
 - An **input** is either a **source**—a set of `.proto` files—or an **image**—a set of `.proto` files built into a single, encapsulating Protobuf [`Image`][image-proto] message.
 - All **inputs** have a **format** that describes the type of the **input**. Commonly used formats
   include [`dir`](#dir) and [`git`](#git). The **format** of an **input** is usually derived
@@ -25,9 +25,9 @@ First, some basic terminology to help our discussion:
 
 ## Why?
 
-Most Protobuf usage involves `.proto` files on disk, and this is how `buf` works by default. But
-there are also cases where you may want to work with sources beyond your local filesystem. We
-describe these cases in detail below.
+Generally, your only goal is to work with `.proto` files on disk. The `buf` CLI works this way by default.
+But there are cases where you may want to work with more than just local files. Those cases are
+described below.
 
 ### The Buf Schema Registry (BSR) {#bsr}
 
@@ -50,8 +50,8 @@ current Protobuf schema to an old version of your schema, you have to decide - w
 version stored? `buf` provides multiple options for this, including the ability to directly compile
 and compare against a Git branch or Git tag.
 
-However, it is sometimes preferable to store a representation of your old version in a file. `buf` provides
-this functionality with [Buf images](../reference/images.md), allowing you to store your golden state, and then compare your
+It's sometimes preferable, however, to store a representation of your old version in a file. `buf` provides
+this functionality with [Buf images], allowing you to store your golden state, and then compare your
 current Protobuf schema against this golden state. This includes support for partial comparisons, as well
 as storing this golden state in a remote location.
 

@@ -6,8 +6,8 @@ title: Introduction
 Buf's goal is to shift API development toward a [schema-driven paradigm](https://buf.build/blog/api-design-is-stuck-in-the-past) and thus pave the way for a future in which APIs are defined in a way that service owners and clients can depend on.
 
 Defining APIs using an [IDL](https://en.wikipedia.org/wiki/Interface_description_language) provides a number of benefits over simply exposing REST/JSON
-services, and today, [Protobuf](https://developers.google.com/protocol-buffers) is the most stable, widely adopted IDL in the industry. However, as it
-stands, using Protobuf is much more difficult than using JSON as your data transfer format.
+services, and today, [Protobuf](https://developers.google.com/protocol-buffers) is the most stable, widely adopted IDL in the industry. But as things
+stand today, using Protobuf is much more difficult than using JSON as your data transfer format.
 
 Buf is building tooling to make Protobuf reliable and user friendly for service owners and clients, while keeping it the obvious choice on the technical
 merits. Your organization should not have to reinvent the wheel to create, maintain, and consume Protobuf APIs efficiently and effectively. We'll handle
