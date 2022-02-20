@@ -13,20 +13,20 @@ The BSR comes with a browsable UI, dependency management, API validation and ver
 
 ### BSR goals
 
-1. **Centralized Registry** - The BSR is the source of truth for tracking and evolving your Protobuf APIs. A centralized registry enables you to maintain compatibility and manage dependencies, while enabling your clients to consume APIs reliably and efficiently. Having a centralized, Protobuf-aware, registry has the added benefit of protecting against broken builds.
+1. **Centralized registry** - The BSR is the source of truth for tracking and evolving your Protobuf APIs. A centralized registry enables you to maintain compatibility and manage dependencies, while enabling your clients to consume APIs reliably and efficiently. Having a centralized, Protobuf-aware, registry has the added benefit of protecting against broken builds.
 
-2. **Dependency Management** - The BSR _finally_ introduces dependency management to the Protobuf ecosystem. You can now declare, resolve and use hosted BSR modules as dependencies in your projects.
+2. **Dependency management** - The BSR _finally_ introduces dependency management to the Protobuf ecosystem. You can now declare, resolve and use hosted BSR modules as dependencies in your projects.
 
   Put simply, **you don't need to copy your `.proto` file dependencies around anymore**. The `buf` CLI interacts directly with the BSR to fetch your dependencies, (analogous to `npm` for Node.js, `pip` for Python, `cargo` for Rust, and Go modules in Go).
 
-3. **UI and Documentation** - The BSR offers complete documentation for your Protobuf files through a browsable UI with syntax highlighting, definitions, and references.
+3. **UI and documentation** - The BSR offers complete documentation for your Protobuf files through a browsable UI with syntax highlighting, definitions, and references.
 
 4. **Code Generation** - The BSR makes possible two distinct forms of code generation:
 
-    - *Local Code Generation*: The BSR contains remote references that allow you to immediately generate code for your language of choice. Use your existing `protoc` plugins,
+    - *Local code generation*: The BSR contains remote references that allow you to immediately generate code for your language of choice. Use your existing `protoc` plugins,
       run `buf generate`, and you're ready to go.
 
-    - *Remote Code Generation (experimental)*: Don't want to manage plugins? No problem. The BSR offers remote code generation through hosted plugins and templates.
+    - *Remote code generation (experimental)*: Don't want to manage plugins? No problem. The BSR offers remote code generation through hosted plugins and templates.
       The remote-generated code gets stored in a managed software repository that you fetch like any other library with tools you already know: `go get`, `mvn install`,
       `pip install`, `npm install`, etc.
 

@@ -15,7 +15,7 @@ and migration.
 - Prototool has a formatter via `prototool format`. `buf` does not have a formatter as of
   now, but one may exist in the near future. The short is that Protobuf linters that exist
   today either rely on third-party Protobuf parsers (as Prototool does), which can result in
-  corrupt files, or on FileDescriptorSets, which are lossy. If you're willing to assume the risks,
+  corrupt files, or on `FileDescriptorSet`s, which are lossy. If you're willing to assume the risks,
   however, this is functionality that Prototool has that `buf` does not.
 - Prototool has gRPC CLI functionality via `prototool grpc`. This functionality
   roughly models parts of [grpcurl](https://github.com/fullstorydev/grpcurl) but with
