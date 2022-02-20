@@ -195,13 +195,13 @@ Note that `http://`, `https://`, `ssh://`, and `git://` locations must be prefix
 
 Examples:
 
-  - `.git#branch=master` says to clone the master branch of the git repository at the relative path
+  - `.git#branch=main` says to clone the `main` branch of the git repository at the relative path
     `.git`. This is particularly useful for local breaking change detection.
   - `.git#tag=v1.0.0` says to clone the v1.0.0 tag of the git repository at the relative path
     `.git`.
-  - `.git#branch=master,subdir=proto` say to clone the master branch and use the `proto` directory
+  - `.git#branch=main,subdir=proto` says to clone the `main` branch and use the `proto` directory
     as the base directory.
-  - `.git#branch=master,recurse_submodules=true` says to clone the master branch along with all
+  - `.git#branch=main,recurse_submodules=true` says to clone the `main` branch along with all
     recursive submodules.
   - `.git#ref=7c0dc2fee4d20dcee8a982268ce35e66fc19cac8` says to clone the repo and checkout the specific ref.
     Any ref that is a valid input to `git checkout` can be used.
@@ -399,11 +399,11 @@ HTTPS with these environment variables:
 Assuming one of these mechanisms is present, you can call `buf` as you normally would:
 
 ```sh
-$ buf lint https://github.com/org/private-repo.git#branch=master
+$ buf lint https://github.com/org/private-repo.git#branch=main
 $ buf lint https://github.com/org/private-repo.git#tag=v1.0.0
-$ buf lint https://github.com/org/private-repo/archive/master.tar.gz#strip_components=1
-$ buf lint https://github.com/org/private-repo/archive/master.zip#strip_components=1
-$ buf breaking --against https://github.com/org/private-repo.git#branch=master
+$ buf lint https://github.com/org/private-repo/archive/main.tar.gz#strip_components=1
+$ buf lint https://github.com/org/private-repo/archive/main.zip#strip_components=1
+$ buf breaking --against https://github.com/org/private-repo.git#branch=main
 $ buf breaking --against https://github.com/org/private-repo.git#tag=v1.0.0
 ```
 
@@ -422,9 +422,9 @@ These environment variables can also be used:
 Assuming one of these mechanisms is present, you can call `buf` as you normally would:
 
 ```sh
-$ buf lint ssh://git@github.com/org/private-repo.git#branch=master
+$ buf lint ssh://git@github.com/org/private-repo.git#branch=main
 $ buf lint ssh://git@github.com/org/private-repo.git#tag=v1.0.0
-$ buf breaking --against ssh://git@github.com/org/private-repo.git#branch=master
+$ buf breaking --against ssh://git@github.com/org/private-repo.git#branch=main
 $ buf breaking --against ssh://git@github.com/org/private-repo.git#tag=v1.0.0
 ```
 

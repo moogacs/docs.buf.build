@@ -252,10 +252,10 @@ compiling and linting all 2,311 files in [googleapis](https://github.com/googlea
 takes about 0.8s with `buf`), we feel that it is better to run multiple commands for the
 functionality you want to perform.
 
-### `prototool break check --git-branch master`
+### `prototool break check --git-branch main`
 
 ```sh
-$ buf breaking --against '.git#branch=master'
+$ buf breaking --against '.git#branch=main'
 $ buf breaking --against '.git#tag=v1.0.0'
 ```
 
