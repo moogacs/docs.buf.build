@@ -298,6 +298,11 @@
   status = 301
 
 [[redirects]]
+  from = "/bsr/remote-generation"
+  to = "/bsr/remote-generation/overview"
+  status = 301
+
+[[redirects]]
   from = "/best-practices"
   to = "/best-practices/style-guide"
   status = 301
