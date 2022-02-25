@@ -146,7 +146,7 @@ You can now build and run your API as you normally would.
 
 ### Consumer (Client SDK)
 
-The really neat feature of BSR Remote Generation is consumers of the Twirp API get JSON/Protobuf clients for free. No Protobuf files, no local protoc plugins. No hand writing clients. Simply fetch the generated code like any other library.
+The really neat feature of BSR remote generation is consumers of the Twirp API get JSON/Protobuf clients for free. No Protobuf files, no local protoc plugins. No hand writing clients. Simply fetch the generated code like any other library.
 
 Here is a fully working Go client SDK for the above Twirp server. Again, we're importing remote-generated code from the BSR Go module proxy.
 
