@@ -145,6 +145,26 @@ $ docker run --volume "$(pwd):/workspace" --workdir /workspace bufbuild/buf lint
 google/type/datetime.proto:17:1:Package name "google.type" should be suffixed with a correctly formed version, such as "google.type.v1".
 ```
 
-## Windows support
+## Windows support {#windows}
 
-Buf has officially added support for Windows, available for both `x64_64` and `arm64` architectures. You can download the latest binary from the [release page](https://github.com/bufbuild/buf/releases/latest).
+### Scoop
+
+You can install the `buf` CLI using the [Scoop] installer for Windows:
+
+```powershell
+scoop install buf
+```
+
+To update Buf:
+
+```powershell
+scoop update buf
+```
+
+### Binary
+
+Buf offers Windows binaries for both the `x86_64` and `arm64` architectures. You can download the
+latest binaries from [GitHub Releases][releases].
+
+[releases]: https://github.com/bufbuild/buf/releases/latest
+[scoop]: https://scoop.sh
