@@ -91,8 +91,9 @@ The `buf generate` command will:
 Any errors are printed out in a `file:line:column:message` format by default.
 For example:
 
-```sh
+```terminal
 $ buf generate
+---
 acme/pet/v1/pet.proto:5:8:acme/payment/v1alpha1/payment.proto: does not exist
 ```
 
