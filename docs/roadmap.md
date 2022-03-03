@@ -72,7 +72,7 @@ not be resolved, and the developer can simply adjust their requirements as neede
 
 ### Reflection Service
 
-The BSR holds all of your Protobuf API definitions so it can very easily act as a reflection server for your
+The BSR holds all of your Protobuf API definitions so it can easily act as a reflection server for your
 Protobuf messages. This typically involves exposing a set of reflection endpoints on *your* server, but this
 is no longer required because the BSR has all of your definitions and it can host this functionality for you.
 

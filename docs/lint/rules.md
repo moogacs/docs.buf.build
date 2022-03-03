@@ -100,7 +100,7 @@ only one such directory exists. For example, consider this `tree`:
                 └── baz_service.proto // package foo.bar.baz.v1
 ```
 
-`protoc` doesn't enforce file structure in any way, but you're likely to have a *very* bad time
+`protoc` doesn't enforce file structure in any way, but you're likely to have a rough time
 with many Protobuf plugins across various languages if you do not do this.
 
 This structure has the effect of allowing imports to self-document their package. For example,
@@ -644,5 +644,5 @@ standardization. This is to provide maximum usefulness of the `DEFAULT` category
 ## Adding or requesting new rules
 
 If you'd like a new rule added, please [contact us](../contact.md) to discuss it. We'll add rules if we think
-they're maintainable and could have widespread value. Most rules can be very easily added, and although
+they're maintainable and could have widespread value. Most rules can be easily added, and although
 [Buf is OSS](https://github.com/bufbuild/buf), it's usually more efficient for us to add it ourselves.

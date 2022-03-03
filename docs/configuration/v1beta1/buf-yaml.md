@@ -130,7 +130,7 @@ import "foo/bar/bar.proto";
 > that are still using `v1beta1`. For more information, please refer to the [migration guide](../v1beta1-migration-guide.md).
 
 There are two additional requirements that `buf` imposes on your `.proto` file structure for compilation to succeed that
-are not enforced by `protoc`, both of which are very important for successful modern Protobuf development across a number
+are not enforced by `protoc`, both of which are essential to successful modern Protobuf development across a number
 of languages.
 
 **1. Roots must not overlap, that is one root can not be a sub-directory of another root.**

@@ -280,7 +280,7 @@ $ buf build
 ```
 
 `buf` handles `/dev/null` on Mac and Linux, and `nul` in Windows as a special-case,
-and even though writing to `/dev/null` is very quick, `buf` stops short on writing if this is
+and even though writing to `/dev/null` is fast, `buf` stops short on writing if this is
 specified.
 
 ### `prototool config init`
