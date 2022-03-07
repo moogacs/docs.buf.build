@@ -285,38 +285,55 @@ $ buf build --path path/to/foo.proto --path path/to/bar.proto
 
 ## Limit to specific types
 
-The output `FileDescriptorSet` or image from a `buf build` will contain all types
-declared in the module. For advanced use cases, users may want an image or
-`FileDescriptorSet` containing only a subset of types. Introduced in `v1.1.0`, the
-`--type` flag accepts fully qualified Protobuf names and limits the output image
-to contain only descriptors required to represent those types and their required
-dependencies. The type flag supports messages, enums, and services.
+When you run `buf build` to create a [`FileDescriptorSet`][filedescriptorset] or Buf [image], the
+output contains all of the Protobuf types declared in the [module] by default. But for some advanced
+use cases, you may want the image or `FileDescriptorSet` to contain only a subset of the types
+described in your Protobuf API.
+
+Versions 1.1.0 and later of the `buf` CLI include a `--type` option for the `buf build` command that
+enables you to supply a fully qualified Protobuf name and limit the resulting image or
+`FileDescriptorSet` to only those descriptors required to represent those types and their required
+dependencies. This example usage restricts the output types to those required to represent
+`pkg.foo.Bar`:
 
 ```terminal
 $ buf build --type pkg.foo.Bar
 ```
 
-A descriptor is said to require another descriptor if the dependent descriptor
-is needed to accurately and completely represent that descriptor. These include:
-  - Messages
-    - messages & enums referenced in fields
-    - proto2 extension declarations for this field
-    - the parent message if this message is a nested definition
-    - custom options for the message, its fields, and the file in which the
-      message is defined
-  - Enums
-    - the EnumValue descriptors for this enum
-    - the parent message if this message is a nested definition
-    - Custom options used in the enum, enum values, and the file
-      in which the message is defined
-  - Services
-    - request & response types referenced in methods
-    - custom options for the service, its methods, and the file
-      in which the message is defined
+The `--type` flag accepts fully qualified names for [messages], [enums], and [services]. These
+dependent descriptors are included in the build:
 
-As an example, consider the these sample protos:
-```protobuf
---- foo.proto ---
+- [Messages]
+  - Messages and enums referenced in message fields
+  - Any [proto2] extension declarations for message fields
+  - The parent message if this message is a nested definition
+  - Any custom options for the message, its fields, and the file in which the message is defined
+- [Enums]
+  - The enum value descriptors for this enum
+  - The parent message is this enum is a nested definition
+  - Any custom options for the enum, enum values, and the file in which the enum is defined
+- [Services]
+  - Request and response types referenced in service methods
+  - Any custom options for the services, its methods, and the file in which the service is defined
+
+:::success Supplying multiple types
+You can specify multiple types by applying the `--type` option multiple times, as in this example:
+
+```terminal
+$ buf build \
+  --type acme.weather.v1.Units \
+  --type acme.weather.v1.CurrentWeather.Temperature
+```
+
+In this case, dependent descriptors for both `acme.weather.v1.Units` and
+`acme.weather.v1.CurrentWeather.Temperature` are included in the output.
+:::
+
+### Type restriction example
+
+As an example, consider these two `.proto` files:
+
+```protobuf title="foo.proto"
 package pkg;
 message Foo {
   optional Bar bar = 1;
@@ -326,7 +343,9 @@ message Bar { ... }
 message Baz {
   other.Qux qux = 1 [(other.my_option).field = "buf"];
 }
---- baz.proto ---
+```
+
+```protobuf title="bar.proto"
 package other;
 extend Foo {
   optional Qux baz = 2;
@@ -338,19 +357,14 @@ extend google.protobuf.FieldOptions {
 }
 ```
 
-A filtered image for type `pkg.Foo` would include: 
-  - Files:      `foo.proto`, `bar.proto`
-  - Messages:   `pkg.Foo`, `pkg.Bar`, `other.Qux`
-  - Extensions: `other.baz`
+This table shows which files, messages, and extensions would be included for various types from
+`foo.proto` and `bar.proto` if specified as the argument to `--type`:
 
-A filtered image for type `pkg.Bar` would include:
-  - Files:      `foo.proto`
-  - Messages:   `pkg.Bar`
-
-A filtered image for type `pkg.Baz` would include:
-  - Files:      `foo.proto`, `bar.proto`
-  - Messages:   `pkg.Baz`, `other.Quux`, `other.Qux`
-  - Extensions: `other.my_option`
+Type | Files | Messages | Extensions
+:----|:------|:---------|:----------
+`buf build --type pkg.Foo` | `foo.proto`, `bar.proto` | `pkg.Foo`, `pkg.Bar`, `other.Qux` | `other.baz`
+`buf build --type pkg.Bar` | `foo.proto` | `pkg.Bar` | |
+`buf build --type pkg.Baz` | `foo.proto`, `bar.proto` | `pkg.Baz`, `other.Quux`, `other.Qux` | `other.my_option`
 
 ## Docker
 
@@ -364,4 +378,10 @@ $ docker run \
   bufbuild/buf build
 ```
 
+[enums]: https://developers.google.com/protocol-buffers/docs/proto3#enum
 [filedescriptorset]: https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/descriptor.proto
+[image]: ../reference/images.md
+[messages]: https://developers.google.com/protocol-buffers/docs/proto3#simple
+[module]: ../bsr/overview.md#modules
+[proto2]: https://developers.google.com/protocol-buffers/docs/proto
+[services]: https://developers.google.com/protocol-buffers/docs/proto3#services
