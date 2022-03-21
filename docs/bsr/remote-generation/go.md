@@ -2,6 +2,7 @@
 id: go
 title: Go
 ---
+
 import Breaking from "@site/src/components/Breaking";
 
 <Breaking 
