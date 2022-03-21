@@ -1,15 +1,18 @@
 ---
 id: go
-title: Go module proxy
+title: Go
 ---
+import Breaking from "@site/src/components/Breaking";
 
-> The [remote code generation](/bsr/remote-generation/overview) feature is currently in **alpha**.
-> This doc discusses Go, the first language we added support for, but we have plans to add support
-> for others. [Let us know](/contact.md) which language we should tackle next.
+<Breaking 
+  feature="Remote code generation for Go"
+  article="an"
+  version="alpha"
+/>
 
 The BSR supports [remote code generation](../overview.md) for [Go]. With this feature, you can
-push [Buf modules][modules] to the BSR and then `go get` Go code stubs generated from those Protobuf
-definitions. The generated source code is hosted in the [BSR Go module proxy](#proxy).
+push [Buf modules][modules] to the BSR and `go get` Go code stubs generated from those Protobuf
+definitions—without. The generated source code is hosted in the [BSR Go module proxy](#proxy).
 
 This feature is especially useful for creating API clients in Go, as you essentially have access to
 generated Go SDKs on demand. With remote generation, you no longer need to generate Go code from

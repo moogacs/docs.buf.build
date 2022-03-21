@@ -1,9 +1,20 @@
 ---
-id: npm
-title: BSR npm registry
+id: js
+title: JavaScript/TypeScript
 ---
 
-> The BSR npm registry is currently an **alpha** feature. Although you're free to experiment with it, be aware that we're likely to make breaking changes that may affect your workflows.
+import Breaking from "@site/src/components/Breaking";
+
+<Breaking 
+  feature="Remote code generation for JavaScript and TypeScript"
+  article="an"
+  version="alpha"
+/>
+
+The [Buf Schema Registry][bsr] (BSR) supports [remote code generation](../overview.md) for
+[JavaScript] and [TypeScript]. With this feature, you can push [Buf
+modules](../../bsr/overview.md#modules) to the BSR and install JavaScript and TypeScript code stubs
+generated from those Protobuf definitions—without needing to
 
 The [Buf Schema Registry][bsr] (BSR) offers an [npm] registry that you can use to consume JavaScript and TypeScript packages generated from [Buf modules][modules]. It uses the BSR's [remote code generation](overview.md) feature to generate those packages upon request. With the BSR npm registry, you no longer need to maintain Protobuf files or runtime dependencies like [protoc] plugins—in fact, JavaScript and TypeScript developers can avoid local code generation altogether for any Buf modules that have been pushed to the BSR.
 
@@ -124,6 +135,7 @@ If you're a plugin author, be sure to heed this naming structure; otherwise, con
 [bsr]: /bsr/overview
 [buf-npm]: https://npm.buf.build
 [deps]: /bsr/overview#dependencies
+[javascript]: https://javascript.com
 [labels]: /bsr/remote-generation/plugin-example#3-prepare-the-dockerfile
 [modules]: /bsr/overview#modules
 [npm]: https://npmjs.org
@@ -138,6 +150,7 @@ If you're a plugin author, be sure to heed this naming structure; otherwise, con
 [semver]: https://semver.org
 [settings]: https://buf.build/settings/user
 [template]: /bsr/remote-generation/concepts#templates
+[typescript]: https://typescript.org
 [yarn]: https://yarnpkg.com
 [yarn_v1]: https://github.com/yarnpkg/yarn/releases/tag/v1.10.0
 [yarn_v2]: https://github.com/yarnpkg/berry
