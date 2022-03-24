@@ -58,7 +58,7 @@ Any lint errors discovered are printed out in this format:
 import Syntax from "@site/src/components/Syntax";
 
 <Syntax
-  title="Lint violation syntax"
+  title="Lint error syntax"
   examples={[
     "pet/v1/pet.proto:47:9:Service name \"PetStore\" should be suffixed with \"Service\"."
   ]}
