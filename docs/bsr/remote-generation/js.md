@@ -48,13 +48,13 @@ import Syntax from "@site/src/components/Syntax";
   segments={[
     {label: "@buf", kind: "constant"},
     {separator: "/"},
-    {label: "templateOwner", kind: "variable"},
+    {label: "templateOwner", kind: "variable", href: "/bsr/remote-generation/overview#templates"},
     {separator: "_"},
-    {label: "templateName", kind: "variable"},
+    {label: "templateName", kind: "variable", href: "/bsr/remote-generation/overview#templates"},
     {separator: "_"},
-    {label: "moduleOwner", kind: "variable"},
+    {label: "moduleOwner", kind: "variable", href: "/bsr/overview#modules"},
     {separator: "_"},
-    {label: "moduleName", kind: "variable"},
+    {label: "moduleName", kind: "variable", href: "/bsr/overview#modules"},
   ]
 } />
 
