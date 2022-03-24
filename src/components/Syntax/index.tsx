@@ -30,7 +30,7 @@ const Example = ({ examples }: { examples: string[] }) => {
     <div className={styles.examples}>
       {examples.length == 1 && (
         <span className={styles.exampleTitle}>
-          <span>Example:</span>
+          <span>Example</span>
           <span className={styles.example}>{examples[0]}</span>
         </span>
       )}
