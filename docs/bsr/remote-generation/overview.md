@@ -29,7 +29,7 @@ import Image from '@site/src/components/Image';
 
 In essence, you can use generation [templates](#templates) to generate code stubs from [Buf
 modules](../overview.md#modules) that you've pushed to the BSR. All code generation happens _on the
-BSR itself_—not on your laptop, not in a CI/CD environment, only remotely on the BSR.
+BSR itself_&mdash;not on your laptop, not in a CI/CD environment, only remotely on the BSR.
 
 ## Supported languages {#languages}
 
