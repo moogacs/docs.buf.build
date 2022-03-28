@@ -200,7 +200,7 @@ $ docker run \
 ```
 
 :::info Docker image doesn't include protoc or plugins
-If you need to generate code stubs using [protoc] or [Protobuf plugins](../reference/images.md#plugins), be aware that the `bufbuild/buf` ships with neither. We recommend one of these approaches:
+If you need to generate code stubs using [protoc] or [Protobuf plugins](../reference/images.md#plugins), be aware that the `bufbuild/buf` image ships with neither. We recommend one of these approaches:
 
 1. Use [remote plugin execution](../bsr/remote-generation/hosted-plugins.md) to generate code stubs without needing to install any additional executables.
 1. Use the `bufbuild/buf` image as part of a [multi-stage build][multi-stage] that includes any required executables as part of the final image.
