@@ -106,7 +106,7 @@ module.exports = {
           label: "GitHub",
           position: "right",
           bufAppearance: "github",
-          stargazers: 3982
+          stargazers: 4000
         }
       ]
     },
