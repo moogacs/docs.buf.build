@@ -91,10 +91,6 @@ you can build your own tools and integrations with it.
 
 ## `buf` CLI
 
-### Formatter
-
-We'll be releasing `buf format` soon, which will enable you to apply consistent formatting to your Protobuf files. This formatter will also enable you to print unified diffs instead of editing your files directly.
-
 ### Bazel rules
 
 We will support Bazel as a first-class citizen with official Bazel rules.
