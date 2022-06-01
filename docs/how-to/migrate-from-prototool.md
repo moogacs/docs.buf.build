@@ -12,11 +12,6 @@ and migration.
 
 ## Prototool pros
 
-- Prototool has a formatter via `prototool format`. `buf` does not have a formatter as of
-  now, but one may exist in the near future. The short is that Protobuf linters that exist
-  today either rely on third-party Protobuf parsers (as Prototool does), which can result in
-  corrupt files, or on `FileDescriptorSet`s, which are lossy. If you're willing to assume the risks,
-  however, this is functionality that Prototool has that `buf` does not.
 - Prototool has gRPC CLI functionality via `prototool grpc`. This functionality
   roughly models parts of [grpcurl](https://github.com/fullstorydev/grpcurl) but with
   fewer available features. We think gRPC CLI functionality is better left to gRPC-specific
@@ -212,10 +207,6 @@ See the [lint configuration](../lint/configuration.md) documentation for more de
 
 There is no equivalent in `buf`.
 
-`buf` does not have a formatter, and this option is largely integrated into the formatter.
-We can provide file header functionality in the future if there is a big demand for it,
-but this is probably best left to other tooling.
-
 ### `lint.java_package_prefix`
 
 There is no equivalent in `buf`.
@@ -313,9 +304,9 @@ $ buf ls-files
 
 ### `prototool format`
 
-There is no equivalent in `buf`.
-
-`buf` does not have a formatter, see the above discussion for more details.
+```sh
+buf format
+```
 
 ### `prototool generate`
 
