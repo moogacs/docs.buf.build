@@ -9,7 +9,7 @@ Buf provides official support for the [Bazel][bazel] build tool with [`rules_buf
 * Perform [breaking change detection][breaking] for Protobuf [Inputs][inputs] using the [`buf_breaking_test`](#buf-breaking-test) rule.
 * Use the [Gazelle](#gazelle) extension to generate Bazel rules.
 
-## Setup
+## Setup {#rules-setup}
 
 To get started, you need to add a series of imports to your Bazel `WORKSPACE`, replacing the `<SHA256>` and `<VERSION>` with values from a [specific `rules_buf` release][release]:
 
@@ -247,9 +247,9 @@ This file can be referenced from `buf_breaking_test`. The commit and sha256 need
 
 [Gazelle][gazelle] is a build file generator for Bazel projects that natively supports Protobuf. [`rules_buf`][rules_buf] includes a Gazelle extension for generating [`buf_breaking_test`](#buf-breaking-test) and [`buf_lint_test`](#buf-lint-test) rules out of [`buf.yaml`][buf_yaml] configuration files.
 
-### Setup
+### Setup {#gazelle-setup}
 
-Start by [setting up](#overview) `rules_buf`, then set up Gazelle using the [official instructions][gazelle_setup].
+Start by [setting up](#rules-setup) `rules_buf`, then set up Gazelle using the [official instructions][gazelle_setup].
 
 Once Gazelle is set up, add the following snippet at the end of the `WORKSPACE` file:
 
@@ -269,7 +269,7 @@ Now modify the `BUILD` file with the `gazelle` target to include the `buf` exten
 +    name = "gazelle-buf",    
 +    languages = [
 +        # Loads the native proto extension
-+        "@bazel_gazelle//language/proto:go_default_library"
++        "@bazel_gazelle//language/proto:go_default_library",
 +        # Loads the Buf extension
 +        "@rules_buf//gazelle/buf:buf",
 +        # NOTE: This needs to be loaded after the proto language
