@@ -273,7 +273,8 @@ field. But we provide the option in case you want it.
 ## Limit to specific files
 
 By default, `buf` builds all files under the `buf.yaml` configuration file. You can instead manually specify the
-file or directory paths to build. This is an advanced feature intended to be used for editor or Bazel integration - it
+file or directory paths to build. This is an advanced feature intended to be used for editor or
+[Bazel](/build-systems/bazel.md) integration - it
 is better to let `buf` discover all files under management and handle this for you in general.
 
 The compiled result is limited to the given files if the `--path` flag is specified, as in this

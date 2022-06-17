@@ -104,6 +104,12 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Build systems",
+      items: ["build-systems/bazel"],
+      collapsed: false
+    },
+    {
+      type: "category",
       label: "How To",
       items: [
         "how-to/replace-protoc-with-buf",

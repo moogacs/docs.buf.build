@@ -89,12 +89,6 @@ to using fully qualified import paths if you like in your project.
 A large part of the BSR API is usable with the `buf` CLI, but we will soon expose the BSR API so that
 you can build your own tools and integrations with it.
 
-## `buf` CLI
-
-### Bazel rules
-
-We will support Bazel as a first-class citizen with official Bazel rules.
-
 ## Ecosystem
 
 ### Better IDE integration
