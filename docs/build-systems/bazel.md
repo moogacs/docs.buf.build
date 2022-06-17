@@ -316,6 +316,12 @@ gazelle(
 )
 ```
 
+Add the following line of code anywhere after `rules_buf_toolchains` in the `WORKSPACE` file,
+
+```python title="WORKSPACE"
+load("@rules_buf//buf:defs.bzl", "buf_dependencies")
+```
+
 Now run Gazelle `update-repos` command
 ```terminal
 $ bazel run //:gazelle-update-repos
