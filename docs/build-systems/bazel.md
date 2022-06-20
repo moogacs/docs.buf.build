@@ -11,16 +11,17 @@ Buf provides official support for the [Bazel][bazel] build tool with [`rules_buf
 
 ## Setup {#rules-setup}
 
-To get started, you need to add a series of imports to your Bazel `WORKSPACE`, replacing the `<SHA256>` and `<VERSION>` with values from a [specific `rules_buf` release][release]:
+To get started, you need to add a series of imports to your Bazel `WORKSPACE`,
 
 ```python title="WORKSPACE"
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "rules_buf",
-    sha256 = "<SHA256>",
-    urls = [        
-        "https://github.com/bufbuild/rules_buf/releases/download/<VERSION>/rules_buf-<VERSION>.zip",
+    sha256 = "3fe244c9efa42a41edd83f63dee1b5570a1951a654030658b86bfaea6a268164",
+    strip_prefix = "rules_buf-0.1.0",
+    urls = [
+        "https://github.com/bufbuild/rules_buf/archive/refs/tags/v0.1.0.zip",
     ],
 )
 
@@ -62,9 +63,10 @@ rules_proto_toolchains()
 
 http_archive(
     name = "rules_buf",
-    sha256 = "<SHA256>",
-    urls = [        
-         "https://github.com/bufbuild/rules_buf/releases/download/<VERSION>/rules_buf-<VERSION>.zip",
+    sha256 = "3fe244c9efa42a41edd83f63dee1b5570a1951a654030658b86bfaea6a268164",
+    strip_prefix = "rules_buf-0.1.0",
+    urls = [
+        "https://github.com/bufbuild/rules_buf/archive/refs/tags/v0.1.0.zip",
     ],
 )
 
