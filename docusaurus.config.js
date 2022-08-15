@@ -30,7 +30,7 @@ module.exports = {
     ]
   ],
   plugins: [path.resolve("src/plugins/fathom")],
-  title: "Buf™",
+  title: "Buf®",
   tagline: "Building a better way to work with Protocol Buffers",
   url: "https://docs.buf.build",
   baseUrl: "/",
