@@ -33,7 +33,7 @@ Some features of the `buf` CLI's linter:
   Additionally, it copies files into memory _before_ processing. As an unscientific example, `buf`
   can compile all 2,311 `.proto` files in [`googleapis`][googleapis] in about 0.8 seconds on a
   four-core machine, while it takes [protoc] 4.3 seconds to do so on the same machine. While both
-  are fast, the `buf` CLI provides near-instantaneuous feedback, which is especially useful for
+  are fast, the `buf` CLI provides near-instantaneous feedback, which is especially useful for
   editor integration. `buf`'s speed is directly proportional to the input size, so linting a single
   file only takes a few milliseconds.
 

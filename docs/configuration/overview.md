@@ -91,5 +91,5 @@ buf lint --config foo/bar.yaml
 
 # Use the given JSON data.
 # This results in only using the ENUM_NO_ALLOW_ALIAS lint rule for linting.
-buf lint --config '{"lint":{"use":["ENUM_NO_ALLOW_ALIAS"]}}'
+buf lint --config '{"version":"v1","lint":{"use":["ENUM_NO_ALLOW_ALIAS"]}}'
 ```

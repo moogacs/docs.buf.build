@@ -197,7 +197,7 @@ You should be able to copy/paste this into your terminal:
 $ buf breaking \
   "https://github.com/googleapis/googleapis.git" \
   --against "https://github.com/googleapis/googleapis/archive/b89f7fa5e7cc64e9e38a59c97654616ad7b5932d.tar.gz#strip_components=1" \
-  --config '{"breaking":{"use":["PACKAGE"]}}'
+  --config '{"version":"v1","breaking":{"use":["PACKAGE"]}}'
 ---
 google/cloud/asset/v1/assets.proto:27:1:File option "cc_enable_arenas" changed from "false" to "true".
 ```
@@ -207,9 +207,9 @@ To explicitly target the `main` branch, you can adapt the command to include `br
 
 ```terminal {2}
 $ buf breaking \
-  "https://github.com/googleapis/googleapis.git#branch=main" \
+  "https://github.com/googleapis/googleapis.git#branch=master" \
   --against "https://github.com/googleapis/googleapis/archive/b89f7fa5e7cc64e9e38a59c97654616ad7b5932d.tar.gz#strip_components=1" \
-  --config '{"breaking":{"use":["PACKAGE"]}}'
+  --config '{"version":"v1","breaking":{"use":["PACKAGE"]}}'
 ---
 google/cloud/asset/v1/assets.proto:27:1:File option "cc_enable_arenas" changed from "false" to "true".
 ```
