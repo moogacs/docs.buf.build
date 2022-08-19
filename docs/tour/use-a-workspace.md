@@ -197,15 +197,15 @@ and `paymentapis` modules.
 
 Adapt the `PetStoreService` with the `PurchasePet` endpoint like this:
 
-```protobuf title="petapis/pet/v1/pet.proto" {7,12-18,23}
+```protobuf title="petapis/pet/v1/pet.proto" {8,12-18,23}
  syntax = "proto3";
 
  package pet.v1;
 
  option go_package = "github.com/bufbuild/buf-tour/petstore/gen/proto/go/pet/v1;petv1";
 
-+import "payment/v1alpha1/payment.proto";
  import "google/type/datetime.proto";
++import "payment/v1alpha1/payment.proto";
 
  ...
 
@@ -244,7 +244,7 @@ the result:
 ```terminal
 $ buf build petapis
 ---
-petapis/pet/v1/pet.proto:7:8:payment/v1alpha1/payment.proto: does not exist
+petapis/pet/v1/pet.proto:8:8:payment/v1alpha1/payment.proto: does not exist
 ```
 
 Behind the scenes, `buf` recognizes that there is a `buf.work.yaml` in one of the
