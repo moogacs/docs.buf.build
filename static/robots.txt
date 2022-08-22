@@ -1,3 +1,5 @@
+# Algolia-Crawler-Verif: 9E5CE94992A4A054
+
 User-agent: *
 Allow: /
 Sitemap: https://docs.buf.build/sitemap.xml

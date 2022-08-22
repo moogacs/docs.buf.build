@@ -7,7 +7,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.vercel
+.vs_code
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.vercel
