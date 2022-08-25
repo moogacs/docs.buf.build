@@ -48,7 +48,7 @@ to generate *with*:
 
 <Syntax
 	title="Generated Go module path syntax"
-	examples={["go.buf.build/grpc/go/googleapis/googleapis"]}
+	examples={["go.buf.build/bufbuild/connect-go/bufbuild/eliza"]}
 	segments={[
     {"label": "go.buf.build", "kind": "constant"},
     {"separator": "/"},

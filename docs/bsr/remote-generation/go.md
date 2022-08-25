@@ -38,7 +38,7 @@ import Syntax from "@site/src/components/Syntax";
 <Syntax
 	title="Generated Go module path syntax"
 	examples={[
-		"go.buf.build/grpc/go/googleapis/googleapis"
+		"go.buf.build/grpc/go/bufbuild/eliza"
 	]}
 	segments={[
 		{"label": "go.buf.build", "kind": "constant"},
@@ -68,9 +68,9 @@ steps:
 
 ## Try it out!
 
-In this example, we'll use the Go gRPC client for the [GCP Cloud Storage][storage] service. Since
+In this example, we'll use the Go gRPC client for the [Eliza demo][connect-demo] service. Since
 this is a gRPC/Protobuf API we get a generated client SDK with minimal effort. The
-[`grpc/go`][grpc-go] template is used to generate the [`googleapis/googleapis`][googleapis] module.
+[`grpc/go`][grpc-go] template is used to generate the [`bufbuild/eliza`][eliza-module] module.
 
 See the [above](#proxy) for a refresher on Go module import paths.
 
@@ -82,44 +82,39 @@ import (
 	"crypto/tls"
 	"log"
 
-	// Import the GCS API definitions and generate using the template grpc/go.
-	storagev1 "go.buf.build/grpc/go/googleapis/googleapis/google/storage/v1"
+	// Import the Eliza API definitions and generate using the template grpc/go.
+	elizav1 "go.buf.build/grpc/go/bufbuild/eliza/buf/connect/demo/eliza/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )
 
 func main() {
 	cc, err := grpc.Dial(
-		"storage.googleapis.com:443",
+		"demo.connect.build:443",
 		grpc.WithTransportCredentials(credentials.NewTLS(&tls.Config{})),
 	)
 	if err != nil {
 		log.Fatalf("Failed to dial GCS API: %v", err)
 	}
-	client := storagev1.NewStorageClient(cc)
-	resp, err := client.GetBucket(context.Background(), &storagev1.GetBucketRequest{
-		// Public GCS dataset
-		// Ref: https://cloud.google.com/healthcare/docs/resources/public-datasets/nih-chest
-		Bucket: "gcs-public-data--healthcare-nih-chest-xray",
+	client := elizav1.NewElizaServiceClient(cc)
+	resp, err := client.Say(context.Background(), &elizav1.SayRequest{
+		Sentence: "Hello remote generation",
 	})
 	if err != nil {
 		log.Fatalf("Failed to get bucket: %v", err)
 	}
 	log.Println(resp)
 }
+
 ```
 
-Unfortunately running the above will error, as GCP Cloud Storage doesn't yet support gRPC for all
-public buckets, but it serves an example of what's possible with remote code generation and the BSR
-Go module proxy.
-
-If you're using Go modules you'll observe a version such as `v1.4.246` in the `go.mod` file. To
+If you're using Go modules you'll observe a version such as `v1.4.6` in the `go.mod` file. To
 better understand versioning, see the [synthetic versions](overview.md#synthetic-versions)
 documentation.
 
 ```sh title="go.mod"
 require (
-	go.buf.build/grpc/go/googleapis/googleapis v1.4.246
+	go.buf.build/grpc/go/bufbuild/eliza v1.4.6
 )
 ```
 
@@ -170,7 +165,8 @@ To generate Go code from private modules you'll need to make sure the Go tooling
 
 [api]: https://buf.build/acme/paymentapis
 [go]: https://golang.org
-[googleapis]: https://buf.build/googleapis/googleapis
+[eliza-module]: https://buf.build/bufbuild/eliza/
+[connect-demo]: https://github.com/bufbuild/connect-demo
 [goproxy]: https://golang.org/ref/mod#goproxy-protocol
 [grpc-go]: https://buf.build/grpc/templates/go
 [modules]: ../overview.md#modules
