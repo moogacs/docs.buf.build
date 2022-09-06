@@ -3,6 +3,63 @@ id: faq
 title: FAQ
 ---
 
+## `googleapis` failure {#googleapis-failure}
+
+You may have recently seen an error similar to the following:
+
+```
+Failure: …
+
+You may need to upgrade your googleapis/googleapis dependency.
+
+https://github.com/googleapis/googleapis contains over 3800 files, mostly
+relating to Google's core APIs. However, there are only ~30 files used by
+99.999% of developers, and these files are the most common dependency in
+the Protobuf ecosystem. This hosted module now only includes these specific
+files, as including all the files causes hundreds of megabytes of unused
+generated code for the vast majority of developers.
+
+…
+```
+
+If you're seeing this error, it's possible that you need to upgrade your
+`googleapis` dependency - you should be able to run:
+
+```terminal
+$ buf mod update
+```
+
+If you've pinned your `googleapis/googleapis` dependency,
+you'll need to remove the pin prior to `buf mod update`.
+
+For context, we recently made a change to our managed [buf.build/googleapis/googleapis][googleapis]
+repository. [googleapis][googleapis-github] contains over 3800 files, mostly
+relating to Google's core APIs. This causes numerous issues for most users, such as
+timeouts when installing packages with huge swaths of unused code to pull in just a few files.
+Not only is this a lot of code over the network and on disk, but it can cause issues in
+editors that try to parse all of that code!
+
+However, there are only ~30 files used by
+99.999% of developers, and these files are the most common dependency in
+the Protobuf ecosystem. For example:
+
+* `google.type`, which defines useful messages such as `DateTime` and `Money`.
+* `google.rpc`, for interacting with gRPC.
+* `google.api`, for defining APIs, such as with `grpc-gateway`.
+
+We considered these commonly used packages and included a subset of them into the new, slim googleapis repository.
+
+At Buf, we take breaking changes incredibly seriously. This was done to ensure
+the stability of the BSR before we move the BSR out of beta.
+We apologize for any disruption this may cause, however we felt this
+issue was serious enough to make this change prior to finalizing the BSR beta.
+We will never break consumers after v1.
+
+[repo]: https://github.com/bufbuild/buf
+[v1]: https://github.com/bufbuild/buf/releases/tag/v1.0.0
+[googleapis]: https://buf.build/googleapis/googleapis
+[googleapis-github]: https://github.com/googleapis/googleapis
+
 ## CLI command or flag warnings
 
 If you're using the [`buf` CLI][repo] and you get an error message saying that a flag or command has
@@ -70,60 +127,3 @@ $ protoc -I . \
 ```
 
 We apologize for any inconvenience this warning may have caused.
-
-## `googleapis` failure {#googleapis-failure}
-
-You may have recently seen an error similar to the following:
-
-```
-Failure: …
-
-You may need to upgrade your googleapis/googleapis dependency.
-
-https://github.com/googleapis/googleapis contains over 3800 files, mostly
-relating to Google's core APIs. However, there are only ~30 files used by
-99.999% of developers, and these files are the most common dependency in
-the Protobuf ecosystem. This hosted module now only includes these specific
-files, as including all the files causes hundreds of megabytes of unused
-generated code for the vast majority of developers.
-
-…
-```
-
-If you're seeing this error, it's possible that you need to upgrade your
-`googleapis` dependency - you should be able to run:
-
-```terminal
-$ buf mod update
-```
-
-If you've pinned your `googleapis/googleapis` dependency,
-you'll need to remove the pin prior to `buf mod update`.
-
-For context, we recently made a change to our managed [buf.build/googleapis/googleapis][googleapis]
-repository. [googleapis][googleapis-github] contains over 3800 files, mostly
-relating to Google's core APIs. This causes numerous issues for most users, such as
-timeouts when installing packages with huge swaths of unused code to pull in just a few files.
-Not only is this a lot of code over the network and on disk, but it can cause issues in
-editors that try to parse all of that code!
-
-However, there are only ~30 files used by
-99.999% of developers, and these files are the most common dependency in
-the Protobuf ecosystem. For example:
-
-* `google.type`, which defines useful messages such as `DateTime` and `Money`.
-* `google.rpc`, for interacting with gRPC.
-* `google.api`, for defining APIs, such as with `grpc-gateway`.
-
-We considered these commonly used packages and included a subset of them into the new, slim googleapis repository.
-
-At Buf, we take breaking changes incredibly seriously. This was done to ensure
-the stability of the BSR as we move out of beta. We will never break consumers
-after v1. We apologize for any disruption this may cause, however we felt this
-issue was serious enough to make this change prior to finalizing the BSR beta.
-We will never break consumers after v1.
-
-[repo]: https://github.com/bufbuild/buf
-[v1]: https://github.com/bufbuild/buf/releases/tag/v1.0.0
-[googleapis]: https://buf.build/googleapis/googleapis
-[googleapis-github]: https://github.com/googleapis/googleapis
