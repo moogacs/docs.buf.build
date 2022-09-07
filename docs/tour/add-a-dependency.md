@@ -99,7 +99,7 @@ deps:
   - remote: buf.build
     owner: googleapis
     repository: googleapis
-    commit: 1c473ad9220a49bca9320f4cc690eba5
+    commit: 62f35d8aed1149c291d606d958a7ce32
 ```
 
 Now, if you try to build the module again, you'll notice that it's successful:
@@ -107,7 +107,7 @@ Now, if you try to build the module again, you'll notice that it's successful:
 ```terminal
 $ buf build
 ---
-buf: downloading buf.build/googleapis/googleapis:1c473ad9220a49bca9320f4cc690eba5
+buf: downloading buf.build/googleapis/googleapis:62f35d8aed1149c291d606d958a7ce32
 ```
 
 This is the BSR's dependency management in action! A few things happened here, so let's break it down:
@@ -134,7 +134,7 @@ you can specify it like this:
  name: buf.build/$BUF_USER/petapis
  deps:
 -  - buf.build/googleapis/googleapis
-+  - buf.build/googleapis/googleapis:4bdf33e750fb409da9d403e1e98031f4
++  - buf.build/googleapis/googleapis:62f35d8aed1149c291d606d958a7ce32
  lint:
    use:
      - DEFAULT
@@ -151,7 +151,7 @@ With that said, restore the `buf.yaml` file to its previous state before you con
  version: v1
  name: buf.build/$BUF_USER/petapis
  deps:
--  - buf.build/googleapis/googleapis:4bdf33e750fb409da9d403e1e98031f4
+-  - buf.build/googleapis/googleapis:62f35d8aed1149c291d606d958a7ce32
 +  - buf.build/googleapis/googleapis
  lint:
    use:

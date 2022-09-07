@@ -227,7 +227,7 @@ const urls: UrlProps[] = [
   },
   {
     title: "Generated documentation for a specific reference",
-    example: bsrEndpoint("acme/paymentapis/docs/6e230f46113f498392c82d12b1a07b70"),
+    example: bsrEndpoint("acme/paymentapis/docs/9a877cf260e1488d869a31fce3bea26d"),
     segments: [
       root,
       slash,
@@ -242,7 +242,7 @@ const urls: UrlProps[] = [
   },
   {
     title: "Code for a specific reference",
-    example: bsrEndpoint("acme/paymentapis/tree/6e230f46113f498392c82d12b1a07b70"),
+    example: bsrEndpoint("acme/paymentapis/tree/9a877cf260e1488d869a31fce3bea26d"),
     segments: [
       root,
       slash,
@@ -257,7 +257,7 @@ const urls: UrlProps[] = [
   },
   {
     title: "Generated assets for a specific reference",
-    example: bsrEndpoint("acme/paymentapis/assets/6e230f46113f498392c82d12b1a07b70"),
+    example: bsrEndpoint("acme/paymentapis/assets/9a877cf260e1488d869a31fce3bea26d"),
     segments: [
       root,
       slash,

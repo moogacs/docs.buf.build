@@ -106,17 +106,11 @@ deps:
   - remote: buf.build
     owner: $BUF_USER
     repository: paymentapis
-    branch: main
-    commit: dac7c0d731d74ee78aea6f5f812e6997
-    digest: b1-jrrTlZyx9gYfpWv9KoSkEJmzheEMQMvvaa4UtGOxzCo=
-    create_time: ...
+    commit: 9a877cf260e1488d869a31fce3bea26d
   - remote: buf.build
     owner: googleapis
     repository: googleapis
-    branch: main
-    commit: 1c473ad9220a49bca9320f4cc690eba5
-    digest: b1-unlhrcI3tnJd0JEGuOb692LZ_tY_gCGq6mK1bgCn1Pg=
-    create_time: ...
+    commit: 62f35d8aed1149c291d606d958a7ce32
 ```
 
 You can now push the `petapis` module:

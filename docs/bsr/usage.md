@@ -111,10 +111,7 @@ deps:
   - remote: buf.build
     owner: googleapis
     repository: googleapis
-    branch: main
-    commit: 1c473ad9220a49bca9320f4cc690eba5
-    digest: b1-unlhrcI3tnJd0JEGuOb692LZ_tY_gCGq6mK1bgCn1Pg=
-    create_time: ...
+    commit: 62f35d8aed1149c291d606d958a7ce32
 ```
 
 Once your dependencies are updated, you can run `buf build` and the `buf` CLI resolves hosted module dependencies by leveraging the BSR.
