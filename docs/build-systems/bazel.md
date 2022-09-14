@@ -80,7 +80,7 @@ By default, `rules_buf_toolchains` loads the latest `buf` version. For hermetic 
 ```python title="WORKSPACE" {1-2}
 # rules_buf fetches the sha based on the version number, the version is enough for hermetic builds.
 -rules_buf_toolchains()
-+rules_buf_toolchains(version = "v1.7.0")
++rules_buf_toolchains(version = "v1.8.0")
 ```
 
 ## Rules
