@@ -15,6 +15,7 @@ Every user that is part of an organization has an explicit role. Note that users
 
 ### Admin {#org-admin}
 
+- Can modify organization settings, such as [base resource roles](#base-resource-roles).
 - Can manage user roles, except owners.
 - Can add resources.
 
@@ -25,11 +26,11 @@ Every user that is part of an organization has an explicit role. Note that users
 
 ### Machine {#org-machine}
 
-- Can write to organization resources, regardless of the organization's [base resource roles](#base-resource-roles)
+- Can write to organization resources, regardless of the organization's [base resource roles](#base-resource-roles).
 
 This role is useful in CI pipelines - you can set the organization base roles to [Read](#resource-read) and configure a Machine user to write to a BSR repository on merge, for example.
 
-### Base resource roles
+### Base resource roles {#base-resource-roles}
 
 Every organization has a set of base resource roles that apply to all members of the organization.
 The default roles:
