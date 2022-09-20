@@ -197,7 +197,7 @@ and `paymentapis` modules.
 
 Adapt the `PetStoreService` with the `PurchasePet` endpoint like this:
 
-```protobuf title="petapis/pet/v1/pet.proto" {8,12-18,23}
+```protobuf title="petapis/pet/v1/pet.proto" {8,12-18,26}
  syntax = "proto3";
 
  package pet.v1;
@@ -216,6 +216,9 @@ Adapt the `PetStoreService` with the `PurchasePet` endpoint like this:
 +
 +message PurchasePetResponse {}
 +
+
+ ...
+
  service PetStoreService {
    rpc GetPet(GetPetRequest) returns (GetPetResponse) {}
    rpc PutPet(PutPetRequest) returns (PutPetResponse) {}
@@ -269,7 +272,7 @@ If the input for a `buf` command is a directory containing a `buf.work.yaml` fil
 upon all of the modules defined in the `buf.work.yaml`.
 
 For example, suppose that we update both the `paymentapis` and `petapis` directories with some `lint`
-failures, such as violating `FIELD_LOWER_SNAKE_CASE`. You can`lint` all of the modules defined
+failures, such as violating `FIELD_LOWER_SNAKE_CASE`. You can `lint` all of the modules defined
 in the `buf.work.yaml` with a single command:
 
 ```protobuf title="paymentapis/payment/v1/payment.proto" {2-3}

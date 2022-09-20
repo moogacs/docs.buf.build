@@ -76,7 +76,7 @@ you can add it as a dependency to the local `petapis` module:
 $ cd ../petapis
 ```
 
-```yaml title="petapis/buf.yaml" {4}
+```yaml title="petapis/buf.yaml" {5}
  version: v1
  name: buf.build/$BUF_USER/petapis
  deps:
