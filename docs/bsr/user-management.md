@@ -28,7 +28,7 @@ Every user that is part of an organization has an explicit role. Note that users
 
 - Can write to organization resources, regardless of the organization's [base resource roles](#base-resource-roles).
 
-This role is useful in CI pipelines - you can set the organization base roles to [Read](#resource-read) and configure a Machine user to write to a BSR repository on merge, for example.
+This role is useful in CI pipelines - you can set the organization base roles to [Read](#resource-read) and configure a Machine user to push to a BSR repository on merge, for example.
 
 ### Base resource roles {#base-resource-roles}
 

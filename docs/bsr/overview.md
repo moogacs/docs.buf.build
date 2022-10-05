@@ -40,7 +40,7 @@ import Syntax from "@site/src/components/Syntax";
 
 - **Remote**: The DNS name for the server hosting the BSR. This is always `buf.build`.
 - **Owner**: An entity that is either a user or organization within the BSR ecosystem.
-- **Repository**: Stores a single module and all versions of that module.
+- **Repository**: Stores all versions of a single module
 
     While roughly analogous to Git repositories, a Buf repository is only a remote location&mdash;there is no concept of a repository "clone" or "fork". Repositories do not exist in multiple locations.
 
@@ -108,9 +108,8 @@ The `buf` CLI automatically resolves the module(s) specified in the `deps` list.
 
 ## Referencing a module
 
-Each module on the BSR exists as a snapshot, and contains a unique reference associated with every change.
+A module has different versions. Each version includes any number of changes, and each change is identifiable by a unique commit or tag. The collective set of module versions is housed within a repository.
 
-A reference is a way to refer to a single version of the repository. While a reference always _resolves_ to a single snapshot of the repository, it can be either a commit or a tag.
 
 **Commit**: Every push of new content to a repository is associated with a commit that identifies that change in the schema. The commit is created after a successful push. This means that unlike Git, the commit only exists on the BSR repository and not locally.
 
