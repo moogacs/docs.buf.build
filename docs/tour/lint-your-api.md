@@ -48,7 +48,7 @@ The [`DEFAULT`](/lint/rules#default) lint category failures come from these rule
 To make `buf` happy, you can exclude these rules from the `DEFAULT` category by adding them to the
 [`except`](/lint/configuration#except) list in your lint configuration:
 
-```yaml title="buf.yaml" {5-8}
+```yaml title="buf.yaml" {8-11}
  version: v1
  breaking:
    use:
