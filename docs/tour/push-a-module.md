@@ -65,12 +65,12 @@ Update your `buf.yaml` so that its `name` matches the repository you just create
 ```yaml title="buf.yaml" {2}
  version: v1
 +name: buf.build/$BUF_USER/petapis
+breaking:
+   use:
+     - FILE
  lint:
    use:
      - DEFAULT
- breaking:
-   use:
-     - FILE
 ```
 
 ## 7.4 Push the module {#push-the-module}

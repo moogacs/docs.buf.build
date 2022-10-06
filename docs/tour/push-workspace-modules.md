@@ -82,12 +82,12 @@ $ cd ../petapis
  deps:
    - buf.build/googleapis/googleapis
 +  - buf.build/$BUF_USER/paymentapis
+breaking:
+   use:
+     - FILE
  lint:
    use:
      - DEFAULT
- breaking:
-   use:
-     - FILE
 ```
 
 Update your dependencies with this command:

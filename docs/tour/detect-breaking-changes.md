@@ -18,12 +18,12 @@ configuration. Your `buf.yaml` file currently has the `FILE` option configured:
 
 ```yaml title="buf.yaml"
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 ## 4.1 Break Your API {#break-your-api}
