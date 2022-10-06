@@ -131,7 +131,7 @@ dependencies, provided by [googleapis](https://buf.build/googleapis/googleapis),
 `package` declaration to satisfy `buf`'s lint requirements. You can `ignore` the `google/type/datetime.proto`
 file from `buf lint` like with this config update:
 
-```yaml title="buf.yaml" {5-6}
+```yaml title="buf.yaml" {8-9}
  version: v1
  breaking:
    use:
