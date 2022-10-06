@@ -29,7 +29,7 @@ $ rm -rf google
 
 Now remove the `google/type/datetime.proto` reference from your [`buf.yaml`](../configuration/v1/buf-yaml.md):
 
-```yaml title="buf.yaml" {6-7}
+```yaml title="buf.yaml" {9-10}
  version: v1
  name: buf.build/$BUF_USER/petapis
  breaking:
