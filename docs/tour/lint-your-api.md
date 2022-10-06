@@ -72,7 +72,7 @@ Silencing failures by eliminating lint rules using `except` is usually **not** r
 although it may be unavoidable in some situations; it's almost always better to actually _fix_
 the lint failures. You can restore the `buf.yaml` to its previous state with these config changes:
 
-```yaml title="buf.yaml" {5-8}
+```yaml title="buf.yaml" {8-11}
  version: v1
  breaking:
    use:
