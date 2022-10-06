@@ -54,12 +54,12 @@ $ buf mod init
 
 ```yaml title="buf.yaml"
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 ## Modules and workspaces

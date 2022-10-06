@@ -20,12 +20,12 @@ That creates this file:
 
 ```yaml title="buf.yaml"
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 As you can see, the default configuration applies the [`DEFAULT`](./rules.md#default) rules.

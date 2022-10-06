@@ -20,12 +20,12 @@ build:
   roots:
     - proto
     - vendor/googleapis
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 ```sh
@@ -103,22 +103,22 @@ roots can be defined as separate modules, as in these configurations:
 
 ```yaml title=proto/buf.yaml
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 ```yaml title="vendor/googleapis/buf.yaml"
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 The workspace is defined with a [`buf.work.yaml`](v1/buf-work-yaml.md), and makes it possible for users to consolidate multiple modules

@@ -32,14 +32,14 @@ Now remove the `google/type/datetime.proto` reference from your [`buf.yaml`](../
 ```yaml title="buf.yaml" {6-7}
  version: v1
  name: buf.build/$BUF_USER/petapis
+ breaking:
+   use:
+     - FILE
  lint:
    use:
      - DEFAULT
 -  ignore:
 -    - google/type/datetime.proto
- breaking:
-   use:
-     - FILE
 ```
 
 If you try to build the module in its current state, you will notice an error:
@@ -61,12 +61,12 @@ the `buf.build/googleapis/googleapis` module, so you can configure it like this:
  name: buf.build/$BUF_USER/petapis
 +deps:
 +  - buf.build/googleapis/googleapis
- lint:
-   use:
-     - DEFAULT
- breaking:
+breaking:
    use:
      - FILE
+ lint:
+   use:
+     - DEFAULT 
 ```
 
 Now, if you try to build the module again, you'll notice this:
@@ -135,12 +135,12 @@ you can specify it like this:
  deps:
 -  - buf.build/googleapis/googleapis
 +  - buf.build/googleapis/googleapis:62f35d8aed1149c291d606d958a7ce32
- lint:
-   use:
-     - DEFAULT
- breaking:
+breaking:
    use:
      - FILE
+ lint:
+   use:
+     - DEFAULT 
 ```
 
 This is **not recommended** in general since you should _always_ be able to update to the latest version of
@@ -153,12 +153,12 @@ With that said, restore the `buf.yaml` file to its previous state before you con
  deps:
 -  - buf.build/googleapis/googleapis:62f35d8aed1149c291d606d958a7ce32
 +  - buf.build/googleapis/googleapis
- lint:
-   use:
-     - DEFAULT
- breaking:
+breaking:
    use:
      - FILE
+ lint:
+   use:
+     - DEFAULT 
 ```
 
 ## 9.4 Push Your Changes {#push-your-changes}

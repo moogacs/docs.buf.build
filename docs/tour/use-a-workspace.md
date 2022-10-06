@@ -33,12 +33,12 @@ That creates this config file:
 
 ```yaml title="paymentapis/buf.yaml"
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 You can also provide a `name` for the module:
@@ -46,12 +46,12 @@ You can also provide a `name` for the module:
 ```yaml title="paymentapis/buf.yaml" {2}
  version: v1
 +name: buf.build/$BUF_USER/paymentapis
- lint:
-   use:
-     - DEFAULT
- breaking:
+breaking:
    use:
      - FILE
+ lint:
+   use:
+     - DEFAULT 
 ```
 
 Now that the module is all set up, add an API:

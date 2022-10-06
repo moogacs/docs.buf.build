@@ -29,12 +29,12 @@ following content:
 
 ```yaml title="buf.yaml"
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 In `buf`'s default input mode, it assumes there is a `buf.yaml` in your current directory, or uses

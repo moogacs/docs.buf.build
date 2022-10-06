@@ -84,22 +84,22 @@ directories:
 
 ```yaml title="proto/buf.yaml"
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 ```yaml title="vendor/protoc-gen-validate/buf.yaml"
 version: v1
-lint:
-  use:
-    - DEFAULT
 breaking:
   use:
     - FILE
+lint:
+  use:
+    - DEFAULT
 ```
 
 The default `buf.yaml` configuration files shown above are created with this command:

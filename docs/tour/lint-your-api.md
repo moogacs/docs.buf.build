@@ -50,6 +50,9 @@ To make `buf` happy, you can exclude these rules from the `DEFAULT` category by 
 
 ```yaml title="buf.yaml" {5-8}
  version: v1
+ breaking:
+   use:
+     - FILE
  lint:
    use:
      - DEFAULT
@@ -57,9 +60,6 @@ To make `buf` happy, you can exclude these rules from the `DEFAULT` category by 
 +    - PACKAGE_VERSION_SUFFIX
 +    - FIELD_LOWER_SNAKE_CASE
 +    - SERVICE_SUFFIX
- breaking:
-   use:
-     - FILE
 ```
 
 Now if you run `buf lint` again, you'll notice that it's successful (exit code 0 and no output):
@@ -74,6 +74,9 @@ the lint failures. You can restore the `buf.yaml` to its previous state with the
 
 ```yaml title="buf.yaml" {5-8}
  version: v1
+ breaking:
+   use:
+     - FILE
  lint:
    use:
      - DEFAULT
@@ -81,9 +84,6 @@ the lint failures. You can restore the `buf.yaml` to its previous state with the
 -    - PACKAGE_VERSION_SUFFIX
 -    - FIELD_LOWER_SNAKE_CASE
 -    - SERVICE_SUFFIX
- breaking:
-   use:
-     - FILE
 ```
 
 ## 3.2 Fix lint failures {#fix-lint-failures}
@@ -133,14 +133,14 @@ file from `buf lint` like with this config update:
 
 ```yaml title="buf.yaml" {5-6}
  version: v1
+ breaking:
+   use:
+     - FILE
  lint:
    use:
      - DEFAULT
 +  ignore:
 +    - google/type/datetime.proto
- breaking:
-   use:
-     - FILE
 ```
 
 Alternatively, you can specify exactly which rules to ignore using the [`ignore_only`](/lint/configuration#ignore_only)
